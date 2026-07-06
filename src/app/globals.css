@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand-50: #FDFBF8;
+  --color-sand-100: #FAF6F0;
+  --color-sand-200: #F4EBE1;
+  --color-sand-300: #E8DCCB;
+  
+  --color-navy-50: #F0F4F8;
+  --color-navy-100: #DCE6F0;
+  --color-navy-300: #8CAAC8;
+  --color-navy-500: #1B4965;
+  --color-navy-800: #0F2C59;
+  --color-navy-900: #0A1E3B;
+  --color-navy-950: #061326;
+  
+  --color-orange-brand: #E05A2B;
+  --color-orange-brand-hover: #C54B20;
+  
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-script: var(--font-caveat), cursive;
+  --font-sans: var(--font-inter), sans-serif;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-rock: rock 5s ease-in-out infinite;
+  --animate-drift-slow: drift 40s linear infinite;
+  --animate-drift-fast: drift 25s linear infinite;
+  --animate-rotate-beam: rotate-beam 12s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes rock {
+  0%, 100% { transform: rotate(-1.5deg) translateY(0px); }
+  50% { transform: rotate(1.5deg) translateY(-4px); }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+
+@keyframes rotate-beam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+:root {
+  --background: #FAF6F0;
+  --foreground: #0A1E3B;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8B9A6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A69581;
+}
+
+/* Seamless blend filters to force watercolor images to transparency */
+.watercolor-blend {
+  mix-blend-mode: multiply;
+  filter: brightness(1.04) contrast(1.06) saturate(1.02);
+}
+
+/* Vignette gradient mask to fade the square edges of illustration (elliptical fallback) */
+.hero-vignette-mask {
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+  mask-image: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+}
+
+/* Desktop linear-gradient mask for the left side artwork transition */
+.hero-desktop-mask {
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 28%);
+}
+
+/* Mobile top-to-bottom mask */
+.hero-mobile-mask {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%);
+}
+
+/* Organic liquid watercolor splash effect */
+.liquid-splash {
+  animation: liquid-warp 10s ease-in-out infinite;
+}
+
+@keyframes liquid-warp {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(0deg);
+  }
+  33% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+    transform: rotate(60deg);
+  }
+  66% {
+    border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
+    transform: rotate(120deg);
+  }
+}
+
+.watercolor-card {
+  box-shadow: 0 4px 20px -2px rgba(15, 44, 89, 0.04);
+  background: rgba(253, 251, 248, 0.95);
+}
+
+.watercolor-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
