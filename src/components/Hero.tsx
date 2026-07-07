@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-[85vh] bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start lg:justify-between">
+    <section className="relative min-h-[90vh] lg:min-h-[85vh] bg-white lg:bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start lg:justify-between">
       
       {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10 w-full flex-grow">

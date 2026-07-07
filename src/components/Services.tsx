@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-sand-100 relative overflow-hidden w-full">
+    <section id="services" className="py-24 bg-white relative overflow-hidden w-full border-t border-[#1D3D9E]/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         
         {/* Section Header */}

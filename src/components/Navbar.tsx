@@ -44,8 +44,8 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out ${
       isScrolled 
-        ? "bg-[#1D3D9E] lg:bg-white/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#1D3D9E]/5 shadow-sm py-3" 
-        : "bg-[#1D3D9E] lg:bg-transparent border-b border-[#FF6B00]/10 lg:border-transparent py-5"
+        ? "bg-[#1D3D9E] border-b border-[#FF6B00]/10 lg:border-[#1D3D9E]/5 shadow-sm py-3" 
+        : "bg-transparent border-b border-transparent py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`transition-all duration-300 ${
@@ -64,7 +64,7 @@ export default function Navbar() {
               }}
             >
               <img
-                src="/images/dark logo.png"
+                src={isScrolled ? "/images/light logo.png" : "/images/dark logo.png"}
                 alt="Navi Route Logo"
                 className="object-contain w-full h-full"
               />
@@ -76,7 +76,9 @@ export default function Navbar() {
                 <div key={link.name} className="relative">
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-[#0F2C59]/80 hover:text-orange-brand transition-colors py-2"
+                    className={`text-sm font-medium transition-colors py-2 ${
+                      isScrolled ? 'text-white/90 hover:text-orange-brand' : 'text-[#0F2C59]/85 hover:text-[#1D3D9E]'
+                    }`}
                   >
                     {link.name}
                   </Link>
@@ -103,7 +105,7 @@ export default function Navbar() {
             <div className="flex justify-start">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white/90 hover:text-orange-brand transition-colors p-2"
+                className={`transition-colors p-2 ${isScrolled ? 'text-white/90' : 'text-[#0F2C59]'}`}
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -121,7 +123,7 @@ export default function Navbar() {
                 }}
               >
                 <img
-                  src="/images/light logo.png"
+                  src={isScrolled ? "/images/light logo.png" : "/images/dark logo.png"}
                   alt="Navi Route Logo"
                   className="object-contain w-full h-full"
                 />
@@ -132,7 +134,7 @@ export default function Navbar() {
             <div className="flex justify-end">
               <a
                 href="tel:+15551234567"
-                className="text-white/90 hover:text-orange-brand transition-colors p-2"
+                className={`transition-colors p-2 ${isScrolled ? 'text-white/90' : 'text-[#0F2C59]'}`}
                 aria-label="Call us"
               >
                 <Phone className="w-6 h-6" />
