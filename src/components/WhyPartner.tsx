@@ -89,7 +89,7 @@ export default function WhyPartner() {
           </div>
 
           {/* Vertical dotted line on mobile to connect steps vertically */}
-          <div className="absolute top-14 bottom-32 left-1/2 -translate-x-1/2 w-0.5 border-l-2 border-dashed border-[#1D3D9E]/20 md:hidden z-0 pointer-events-none" />
+          <div className="absolute top-18 bottom-36 left-1/2 -translate-x-1/2 w-0.5 border-l-2 border-dashed border-[#1D3D9E]/20 md:hidden z-0 pointer-events-none" />
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
             {processSteps.map((step, idx) => {
@@ -103,12 +103,12 @@ export default function WhyPartner() {
                   className="flex flex-col items-center text-center space-y-4"
                 >
                   {/* Custom Hand-drawn PNG Illustration - sized and positioned on the wavy path */}
-                  <div className="relative w-28 h-28 select-none">
+                  <div className="relative w-36 h-36 select-none">
                     <Image
                       src={step.image}
                       alt={step.title}
                       fill
-                      sizes="112px"
+                      sizes="144px"
                       className="object-contain mix-blend-multiply"
                     />
                     <span className="absolute -top-1 -right-1 bg-[#FF6B00] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
@@ -117,7 +117,7 @@ export default function WhyPartner() {
                   </div>
 
                   <div className="space-y-1">
-                    <h3 className="font-serif text-lg font-bold text-[#1D3D9E]">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#1D3D9E]">
                       {step.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#0F2C59]/70 leading-relaxed max-w-[200px] mx-auto">
@@ -201,7 +201,7 @@ export default function WhyPartner() {
 
       {/* 3. FINAL CALL-TO-ACTION (CTA) SECTION */}
       <section className="py-12 max-w-7xl mx-auto px-6">
-        <div className="bg-[#1D3D9E] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[220px] lg:min-h-[260px]">
+        <div className="bg-[#1D3D9E] rounded-3xl pt-8 pb-32 px-8 sm:pt-12 sm:pb-36 sm:px-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[320px] sm:min-h-[340px] lg:min-h-[260px]">
           
           {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
           <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none select-none z-0">
@@ -212,6 +212,17 @@ export default function WhyPartner() {
               sizes="50vw"
               className="object-contain object-right-bottom opacity-95"
               priority
+            />
+          </div>
+
+          {/* Mobile version (Visible on <lg) - absolutely positioned in the bottom-right corner of the card with 850px width */}
+          <div className="absolute right-0 bottom-0 w-[850px] h-[240px] pointer-events-none select-none z-0 lg:hidden">
+            <Image
+              src="/images/cta_town_mobile_final.png"
+              alt="Seaside Coastal Town & Sailboat Sketch (Mobile)"
+              fill
+              sizes="850px"
+              className="object-contain object-right-bottom opacity-95"
             />
           </div>
 
@@ -235,17 +246,6 @@ export default function WhyPartner() {
                   Start Your Project
                 </Link>
               </div>
-            </div>
-
-            {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
-            <div className="block lg:hidden w-full h-[160px] sm:h-[200px] relative select-none mt-4 z-0">
-              <Image
-                src="/images/cta_town_mobile_final.png"
-                alt="Seaside Coastal Town & Sailboat Sketch (Mobile)"
-                fill
-                sizes="100vw"
-                className="object-cover object-bottom opacity-95"
-              />
             </div>
             
           </div>

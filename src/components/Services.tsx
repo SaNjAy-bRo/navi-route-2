@@ -63,12 +63,12 @@ export default function Services() {
               >
                 <div className="space-y-6 flex flex-col items-center w-full">
                   {/* Custom Hand-drawn White-Ink Style Illustration (Mix-blend-multiply to merge transparent outlines) */}
-                  <div className="relative w-32 h-32 select-none">
+                  <div className="relative w-56 h-56 select-none">
                     <Image
                       src={svc.image}
                       alt={svc.title}
                       fill
-                      sizes="128px"
+                      sizes="224px"
                       className="object-contain mix-blend-multiply"
                     />
                   </div>

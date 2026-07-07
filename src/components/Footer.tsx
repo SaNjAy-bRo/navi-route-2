@@ -154,13 +154,13 @@ export default function Footer() {
             </div>
 
             {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
-            <div className="block lg:hidden w-full h-[160px] sm:h-[200px] relative select-none mt-4 z-0">
+            <div className="block lg:hidden w-full h-[240px] sm:h-[280px] relative select-none mt-4 z-0">
               <Image
                 src="/images/cta_lighthouse_ink.png"
                 alt="Lighthouse & Cottage Cliff Sketch (Mobile)"
                 fill
                 sizes="100vw"
-                className="object-cover object-bottom opacity-95"
+                className="object-contain object-bottom opacity-95"
               />
             </div>
             
