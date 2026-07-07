@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-[85vh] bg-white lg:bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start lg:justify-between">
+    <section className="relative min-h-[90vh] lg:min-h-[105vh] bg-white lg:bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start">
       
       {/* Main Grid Content */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10 w-full flex-grow">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10 w-full lg:h-[80vh]">
         
         {/* Left Side: Typography (Takes 6 columns on desktop, relative z-10 to stay above background) */}
         <div className="lg:col-span-6 space-y-6 text-left relative z-10">
@@ -64,13 +64,13 @@ export default function Hero() {
             </Link>
           </motion.div>
         </div>
-
+ 
         {/* Desktop Helper Column */}
         <div className="hidden lg:block lg:col-span-6 h-full" />
       </div>
-
+ 
       {/* DESKTOP FULL HEIGHT ABSOLUTE ARTWORK - Positioned in the right-bottom corner, with increased width to span 75vw/80vw */}
-      <div className="absolute right-0 bottom-0 top-0 h-full w-[75vw] xl:w-[80vw] z-0 select-none pointer-events-none hidden lg:block overflow-hidden video-fade-mask">
+      <div className="absolute right-0 top-0 h-[85vh] w-[75vw] xl:w-[80vw] z-0 select-none pointer-events-none hidden lg:block overflow-hidden video-fade-mask">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
