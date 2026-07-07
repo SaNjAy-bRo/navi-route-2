@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out ${
       isScrolled 
-        ? "bg-[#1D3D9E] lg:bg-sand-100/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#0F2C59]/5 shadow-sm py-3" 
+        ? "bg-[#1D3D9E] lg:bg-white/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#1D3D9E]/5 shadow-sm py-3" 
         : "bg-[#1D3D9E] lg:bg-transparent border-b border-[#FF6B00]/10 lg:border-transparent py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,8 +59,8 @@ export default function Navbar() {
               href="/" 
               className="flex items-center justify-center select-none transition-all duration-300"
               style={{
-                width: '100px',
-                height: '100px'
+                width: isScrolled ? '56px' : '100px',
+                height: isScrolled ? '56px' : '100px'
               }}
             >
               <img
@@ -116,8 +116,8 @@ export default function Navbar() {
                 href="/" 
                 className="flex items-center justify-center select-none transition-all duration-300"
                 style={{
-                  width: '100px',
-                  height: '100px'
+                  width: isScrolled ? '50px' : '100px',
+                  height: isScrolled ? '50px' : '100px'
                 }}
               >
                 <img
