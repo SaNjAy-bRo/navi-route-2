@@ -54,9 +54,9 @@ export default function Navbar() {
             <Image
               src="/images/logo.jpeg"
               alt="Navi Route Logo"
-              width={130}
-              height={42}
-              className="object-contain mix-blend-multiply w-[130px] h-[42px]"
+              width={150}
+              height={48}
+              className="object-contain mix-blend-multiply w-[150px] h-[48px]"
               priority
             />
           </Link>
