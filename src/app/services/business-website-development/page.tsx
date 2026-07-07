@@ -97,15 +97,15 @@ export default function BusinessWebsiteDevelopmentPage() {
     <div className="flex flex-col min-h-screen bg-white selection:bg-orange-brand/10 selection:text-orange-brand relative">
       <Navbar />
 
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         
         {/* 1. HERO SECTION */}
-        <section className="relative bg-sand-100 py-20 lg:py-28 overflow-hidden flex items-center min-h-[70vh]">
-          {/* Transparent navy lighthouse watermark */}
+        <section className="relative bg-sand-100 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden flex items-center min-h-[70vh]">
+          {/* Transparent navy sailboat watermark */}
           <div className="absolute right-0 bottom-0 top-12 w-[60%] lg:w-[45%] pointer-events-none select-none z-0 opacity-20 lg:opacity-35">
             <Image
-              src="/images/hero_lighthouse_ink.png"
-              alt="Lighthouse Background"
+              src="/images/sailboat_waves_sketch.png"
+              alt="Sailboat Background"
               fill
               className="object-contain object-right-bottom"
               priority
@@ -233,8 +233,8 @@ export default function BusinessWebsiteDevelopmentPage() {
                 className="relative w-72 h-72 select-none pointer-events-none"
               >
                 <Image
-                  src="/images/hand_holding_compass_v4.png"
-                  alt="Compass Illustration"
+                  src="/images/ship_wheel_sketch.png"
+                  alt="Ship Wheel Illustration"
                   fill
                   className="object-contain"
                 />
@@ -293,8 +293,8 @@ export default function BusinessWebsiteDevelopmentPage() {
               {/* Seaside town sketch overlay */}
               <div className="absolute right-0 bottom-0 w-[85%] h-[55%] pointer-events-none select-none z-0">
                 <Image
-                  src="/images/cta_town_mobile_final.png"
-                  alt="Seaside Sketch Background"
+                  src="/images/telescope_lookout_sketch.png"
+                  alt="Telescope Lookout Background"
                   fill
                   className="object-contain object-right-bottom opacity-90"
                 />

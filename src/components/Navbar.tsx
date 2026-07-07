@@ -163,17 +163,17 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 15 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute left-1/2 -translate-x-1/2 top-full mt-1 bg-white border border-[#1D3D9E]/10 shadow-2xl rounded-3xl p-8 w-[920px] grid grid-cols-4 gap-6 text-left"
+                          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-[#FCF9F3] border-t-4 border-t-[#FF6B00] border-x border-b border-[#1D3D9E]/10 shadow-2xl shadow-[#1D3D9E]/15 rounded-b-3xl rounded-t-lg p-8 w-[920px] grid grid-cols-4 gap-6 text-left"
                         >
                           {megaMenuData.map((col) => {
                             const Icon = col.icon;
                             return (
                               <div key={col.category} className="space-y-4">
-                                <div className="flex items-center gap-2 border-b border-[#1D3D9E]/5 pb-2">
+                                <div className="flex items-center gap-2 border-b border-[#1D3D9E]/10 pb-2.5">
                                   <div className={`p-1.5 rounded-lg ${col.iconColor}`}>
                                     <Icon className="w-4 h-4" />
                                   </div>
-                                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0F2C59]/50">
+                                  <span className="text-[11px] font-black uppercase tracking-wider text-[#1D3D9E]">
                                     {col.category}
                                   </span>
                                 </div>
