@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[75vh] lg:min-h-[85vh] bg-transparent pt-32 pb-0 overflow-hidden flex flex-col justify-start lg:justify-between">
+    <section className="relative min-h-[75vh] lg:min-h-[85vh] bg-transparent pt-32 pb-64 lg:pb-0 overflow-hidden flex flex-col justify-start lg:justify-between">
       
       {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10 w-full flex-grow">
@@ -88,15 +88,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* MOBILE ARTWORK - Positioned at the bottom of the section */}
-      <div className="lg:hidden w-full relative h-[280px] sm:h-[380px] -mt-20 select-none z-0 px-4">
-        <video
-          src="/images/Vintage Coastal Lighthouse Panorama.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-contain object-bottom"
+      {/* MOBILE BACKGROUND ARTWORK - Absolutely positioned under the text and buttons */}
+      <div className="absolute right-0 bottom-0 left-0 w-full h-[280px] sm:h-[380px] z-0 select-none pointer-events-none lg:hidden opacity-30 sm:opacity-40">
+        <Image
+          src="/images/hero_main_scene_ink.png"
+          alt="Lighthouse Cliff Background (Mobile)"
+          fill
+          sizes="100vw"
+          className="object-contain object-bottom"
         />
       </div>
 
