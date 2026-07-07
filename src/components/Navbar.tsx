@@ -44,8 +44,8 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out ${
       isScrolled 
-        ? "bg-sand-100/95 backdrop-blur-md border-b border-[#0F2C59]/5 shadow-sm py-3" 
-        : "bg-transparent border-b border-transparent py-5"
+        ? "bg-[#0F2C59] lg:bg-sand-100/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#0F2C59]/5 shadow-sm py-3" 
+        : "bg-[#0F2C59] lg:bg-transparent border-b border-[#FF6B00]/10 lg:border-transparent py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`transition-all duration-300 ${
@@ -103,7 +103,7 @@ export default function Navbar() {
             <div className="flex justify-start">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-[#0F2C59] hover:text-orange-brand transition-colors p-2"
+                className="text-white/90 hover:text-orange-brand transition-colors p-2"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -121,7 +121,7 @@ export default function Navbar() {
                 }}
               >
                 <img
-                  src="/images/dark logo.png"
+                  src="/images/light logo.png"
                   alt="Navi Route Logo"
                   className="object-contain w-full h-full"
                 />
@@ -132,7 +132,7 @@ export default function Navbar() {
             <div className="flex justify-end">
               <a
                 href="tel:+15551234567"
-                className="text-[#0F2C59] hover:text-orange-brand transition-colors p-2"
+                className="text-white/90 hover:text-orange-brand transition-colors p-2"
                 aria-label="Call us"
               >
                 <Phone className="w-6 h-6" />
@@ -151,16 +151,16 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-sand-50 border-b border-sand-200 overflow-hidden"
+            className="lg:hidden bg-[#0F2C59] border-b border-[#FF6B00]/10 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {navLinks.map((link) => (
-                <div key={link.name} className="border-b border-sand-200/50 pb-2">
+                <div key={link.name} className="border-b border-white/10 pb-2">
                   <div className="flex justify-between items-center py-2">
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-sm font-bold text-[#0F2C59]"
+                      className="text-sm font-bold text-white/90 hover:text-orange-brand"
                     >
                       {link.name}
                     </Link>
