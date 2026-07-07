@@ -54,10 +54,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className={`flex items-center select-none transition-all duration-300 ${
+            className={`flex items-center justify-center select-none transition-all duration-300 ${
               isScrolled 
-                ? "w-28 h-10 md:w-36 md:h-12" 
-                : "w-28 h-10 md:w-44 md:h-16"
+                ? "w-12 h-12" 
+                : "w-16 h-16"
             }`}
           >
             <img
