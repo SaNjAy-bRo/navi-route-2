@@ -46,18 +46,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4 pt-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4 w-full"
           >
             <Link
               href="#services"
-              className="inline-flex justify-center items-center bg-[#FF6B00] hover:bg-[#E05E00] text-white text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
+              className="inline-flex justify-center items-center bg-[#FF6B00] hover:bg-[#E05E00] text-white text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 w-full sm:w-auto text-center"
             >
               Start Your Journey
             </Link>
             
             <Link
               href="#work"
-              className="inline-flex justify-center items-center gap-2 text-[#0F2C59] hover:text-[#FF6B00] text-sm font-bold py-4 px-2 group transition-all duration-200"
+              className="inline-flex justify-center items-center gap-2 text-[#0F2C59] hover:text-[#FF6B00] text-sm font-bold py-4 px-2 group transition-all duration-200 w-full sm:w-auto text-center"
             >
               View Our Work
               <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
@@ -89,7 +89,7 @@ export default function Hero() {
       </div>
 
       {/* MOBILE ARTWORK - Positioned at the bottom of the section */}
-      <div className="lg:hidden w-full relative h-[280px] sm:h-[380px] -mt-10 select-none z-0 px-4">
+      <div className="lg:hidden w-full relative h-[280px] sm:h-[380px] -mt-20 select-none z-0 px-4">
         <video
           src="/images/Vintage Coastal Lighthouse Panorama.mp4"
           autoPlay
