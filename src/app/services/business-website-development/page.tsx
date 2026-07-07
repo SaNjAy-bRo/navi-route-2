@@ -101,11 +101,11 @@ export default function BusinessWebsiteDevelopmentPage() {
         
         {/* 1. HERO SECTION */}
         <section className="relative bg-sand-100 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden flex items-center min-h-[70vh]">
-          {/* Transparent navy sailboat watermark */}
+          {/* Transparent navy Goa seaside church & design tools watermark */}
           <div className="absolute right-0 bottom-0 top-12 w-[60%] lg:w-[45%] pointer-events-none select-none z-0 opacity-20 lg:opacity-35">
             <Image
-              src="/images/sailboat_waves_sketch.png"
-              alt="Sailboat Background"
+              src="/images/seaside_port_design_sketch.png"
+              alt="Seaside Port Design Background"
               fill
               className="object-contain object-right-bottom"
               priority
