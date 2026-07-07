@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-[105vh] bg-white lg:bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start">
+    <section className="relative min-h-[90vh] lg:min-h-[110vh] bg-white lg:bg-transparent pt-32 pb-48 lg:pb-0 overflow-hidden flex flex-col justify-start">
       
       {/* Main Grid Content */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10 w-full lg:h-[80vh]">
@@ -70,7 +70,7 @@ export default function Hero() {
       </div>
  
       {/* DESKTOP FULL HEIGHT ABSOLUTE ARTWORK - Positioned in the right-bottom corner, with increased width to span 75vw/80vw */}
-      <div className="absolute right-0 top-0 h-[85vh] w-[75vw] xl:w-[80vw] z-0 select-none pointer-events-none hidden lg:block overflow-hidden video-fade-mask">
+      <div className="absolute right-0 top-0 h-[80vh] w-[75vw] xl:w-[80vw] z-0 select-none pointer-events-none hidden lg:block overflow-hidden video-fade-mask">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
