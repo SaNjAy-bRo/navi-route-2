@@ -338,7 +338,14 @@ export default function BusinessWebsiteDevelopmentPage() {
             <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] p-8 sm:p-12 grid grid-cols-2 lg:grid-cols-4 gap-8 items-center shadow-sm">
               
               <div className="flex items-center gap-4 py-2 justify-center lg:justify-start">
-                <Monitor className="w-10 h-10 text-[#FF6B00] stroke-[1.5] shrink-0" />
+                <div className="relative w-12 h-12 shrink-0">
+                  <Image
+                    src="/images/service_website_v5.png"
+                    alt="Websites Delivered Icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <div className="text-left">
                   <span className="text-2xl sm:text-3xl font-serif font-black text-[#1D3D9E] tracking-tight block leading-none">90+</span>
                   <span className="text-[10px] font-bold text-[#0F2C59]/50 uppercase tracking-wider mt-1 block">Websites Delivered</span>
@@ -346,7 +353,14 @@ export default function BusinessWebsiteDevelopmentPage() {
               </div>
 
               <div className="flex items-center gap-4 py-2 justify-center lg:justify-start">
-                <Users className="w-10 h-10 text-[#FF6B00] stroke-[1.5] shrink-0" />
+                <div className="relative w-12 h-12 shrink-0">
+                  <Image
+                    src="/images/hand_holding_compass_v4.png"
+                    alt="Happy Clients Icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <div className="text-left">
                   <span className="text-2xl sm:text-3xl font-serif font-black text-[#1D3D9E] tracking-tight block leading-none">50+</span>
                   <span className="text-[10px] font-bold text-[#0F2C59]/50 uppercase tracking-wider mt-1 block">Happy Clients</span>
@@ -354,7 +368,14 @@ export default function BusinessWebsiteDevelopmentPage() {
               </div>
 
               <div className="flex items-center gap-4 py-2 justify-center lg:justify-start">
-                <Award className="w-10 h-10 text-[#FF6B00] stroke-[1.5] shrink-0" />
+                <div className="relative w-12 h-12 shrink-0">
+                  <Image
+                    src="/images/mini_lighthouse_v4.png"
+                    alt="Years Experience Icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <div className="text-left">
                   <span className="text-2xl sm:text-3xl font-serif font-black text-[#1D3D9E] tracking-tight block leading-none">5+</span>
                   <span className="text-[10px] font-bold text-[#0F2C59]/50 uppercase tracking-wider mt-1 block">Years Experience</span>
@@ -362,7 +383,14 @@ export default function BusinessWebsiteDevelopmentPage() {
               </div>
 
               <div className="flex items-center gap-4 py-2 justify-center lg:justify-start">
-                <Network className="w-10 h-10 text-[#FF6B00] stroke-[1.5] shrink-0" />
+                <div className="relative w-12 h-12 shrink-0">
+                  <Image
+                    src="/images/process_plan_v5.png"
+                    alt="Industries Served Icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <div className="text-left">
                   <span className="text-2xl sm:text-3xl font-serif font-black text-[#1D3D9E] tracking-tight block leading-none">10+</span>
                   <span className="text-[10px] font-bold text-[#0F2C59]/50 uppercase tracking-wider mt-1 block">Industries Served</span>
