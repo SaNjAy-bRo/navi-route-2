@@ -9,31 +9,31 @@ const processSteps = [
     step: "01",
     title: "Discover",
     description: "We learn about your business, goals, and audience.",
-    image: "/images/process_discover_v4.png",
+    image: "/images/process_discover_v5.png",
   },
   {
     step: "02",
     title: "Plan",
     description: "We map the strategy, features, and roadmap.",
-    image: "/images/process_plan_v4.png",
+    image: "/images/process_plan_v5.png",
   },
   {
     step: "03",
     title: "Build",
     description: "We design, develop, and test with care and precision.",
-    image: "/images/process_build_v4.png",
+    image: "/images/process_build_v5.png",
   },
   {
     step: "04",
     title: "Launch",
     description: "We deploy, optimize, and prepare for growth.",
-    image: "/images/process_launch_v4.png",
+    image: "/images/process_launch_v5.png",
   },
   {
     step: "05",
     title: "Grow",
     description: "We analyze, iterate, and scale what works.",
-    image: "/images/process_grow_v4.png",
+    image: "/images/process_grow_v5.png",
   },
 ];
 

@@ -80,7 +80,7 @@ export default function Footer() {
         <div className="flex justify-center">
           <div className="relative w-full max-w-[520px] aspect-square">
             <Image
-              src="/images/floating_message_bottle_v3.png"
+              src="/images/floating_message_bottle_v4.png"
               alt="Floating Message Bottle Sketch"
               fill
               className="object-contain"
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
           <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] pointer-events-none select-none z-0">
             <Image
-              src="/images/cta_lighthouse_final.png"
+              src="/images/mini_lighthouse_v4.png"
               alt="Lighthouse & Cottage Cliff Sketch (Desktop)"
               fill
               sizes="40vw"
@@ -156,7 +156,7 @@ export default function Footer() {
             {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
             <div className="block lg:hidden w-full h-[180px] relative select-none z-0 mt-4">
               <Image
-                src="/images/cta_lighthouse_final.png"
+                src="/images/mini_lighthouse_v4.png"
                 alt="Lighthouse & Cottage Cliff Sketch (Mobile)"
                 fill
                 sizes="100vw"

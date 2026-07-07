@@ -80,7 +80,7 @@ export default function CoreValues() {
           >
             <div className="relative w-full max-w-[420px] aspect-square">
               <Image
-                src="/images/hand_holding_compass_v3.png"
+                src="/images/hand_holding_compass_v4.png"
                 alt="Hand Holding Compass Sketch"
                 fill
                 className="object-contain"
