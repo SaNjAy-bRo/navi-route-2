@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
 
 // Custom inline X/Twitter Icon since Lucide has generic icons
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -31,64 +30,6 @@ export default function Footer() {
   return (
     <div className="bg-white w-full flex flex-col">
       
-      {/* 1. GET IN TOUCH SECTION */}
-      <section id="contact" className="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full border-t border-[#1D3D9E]/5">
-        
-        {/* Left: Contact Info */}
-        <div className="space-y-8 text-left">
-          <div className="space-y-4">
-            <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
-              GET IN TOUCH
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1D3D9E] leading-tight">
-              We'd love to hear <br />
-              about your project.
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <a 
-              href="mailto:hello@naviroute.studio" 
-              className="flex items-center gap-4 group text-[#1D3D9E] hover:text-[#FF6B00] transition-colors"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
-                <Mail className="w-5 h-5 stroke-[1.5]" />
-              </div>
-              <span className="font-semibold text-sm sm:text-base">hello@naviroute.studio</span>
-            </a>
-
-            <a 
-              href="tel:+15551234567" 
-              className="flex items-center gap-4 group text-[#1D3D9E] hover:text-[#FF6B00] transition-colors"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
-                <Phone className="w-5 h-5 stroke-[1.5]" />
-              </div>
-              <span className="font-semibold text-sm sm:text-base">+1 (555) 123-4567</span>
-            </a>
-
-            <div className="flex items-center gap-4 group text-[#1D3D9E]">
-              <div className="w-12 h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E]">
-                <MapPin className="w-5 h-5 stroke-[1.5]" />
-              </div>
-              <span className="font-semibold text-sm sm:text-base">Austin, TX & Worldwide</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Message Bottle Sketch */}
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-[520px] aspect-square">
-            <Image
-              src="/images/floating_message_bottle_v4.png"
-              alt="Floating Message Bottle Sketch"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* 2. STAY IN THE LOOP BANNER */}
       <section className="py-12 max-w-7xl mx-auto px-6 w-full">
         <div className="border border-[#0F2C59]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 bg-white relative overflow-hidden min-h-[240px] flex items-center justify-start">
