@@ -70,6 +70,8 @@ export default function SalesFollowUpAutomationPage() {
       ]}
       faqs={faqs}
       flowchart={salesFlowchart}
+      whyChooseTitle="Automation That Drives Growth"
+      whyChooseSubtitle="WHY CHOOSE NAVI ROUTE"
     />
   );
 }

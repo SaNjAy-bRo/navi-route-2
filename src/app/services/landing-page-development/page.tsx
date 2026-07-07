@@ -217,8 +217,8 @@ export default function LandingPageDevelopmentPage() {
           {/* DESKTOP BACKGROUND ARTWORK */}
           <div className="absolute right-0 bottom-0 top-12 w-[45%] pointer-events-none select-none z-0 opacity-35 hidden lg:block">
             <Image
-              src="/images/seaside_port_design_sketch.png"
-              alt="Seaside Port Design Background (Desktop)"
+              src="/images/service_website_v5.png"
+              alt="Website Design Background (Desktop)"
               fill
               className="object-contain object-right-bottom"
               priority
@@ -228,8 +228,8 @@ export default function LandingPageDevelopmentPage() {
           {/* MOBILE BACKGROUND ARTWORK */}
           <div className="absolute inset-x-0 bottom-0 top-40 z-0 select-none pointer-events-none lg:hidden opacity-25">
             <Image
-              src="/images/seaside_port_design_sketch.png"
-              alt="Seaside Port Design Background (Mobile)"
+              src="/images/service_website_v5.png"
+              alt="Website Design Background (Mobile)"
               fill
               sizes="100vw"
               className="object-contain object-center"
@@ -535,10 +535,10 @@ export default function LandingPageDevelopmentPage() {
               {/* background overlay */}
               <div className="absolute right-0 bottom-0 w-[85%] h-[55%] pointer-events-none select-none z-0">
                 <Image
-                  src="/images/sailboat_waves_sketch.png"
+                  src="/images/service_website_v5.png"
                   alt="Sailboat Background"
                   fill
-                  className="object-contain object-right-bottom opacity-90"
+                  className="object-contain object-right-bottom opacity-20"
                 />
               </div>
 

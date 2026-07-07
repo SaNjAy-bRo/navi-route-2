@@ -74,6 +74,8 @@ export default function MetaAdsManagementServicesPage() {
       ]}
       faqs={faqs}
       dashboard={metaAdsDashboard}
+      whyChooseTitle="Your Growth. Our Priority."
+      whyChooseSubtitle="WHY CHOOSE NAVI ROUTE"
     />
   );
 }

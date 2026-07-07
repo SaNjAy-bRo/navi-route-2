@@ -176,6 +176,8 @@ interface DigitalMarketingServiceLayoutProps {
   whyChoose: string[];
   faqs: FAQItem[];
   dashboard?: DashboardData;
+  whyChooseTitle?: string;
+  whyChooseSubtitle?: string;
 }
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -190,6 +192,16 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   graduationcap: GraduationCap,
   shoppingcart: ShoppingCart,
   briefcase: Briefcase
+};
+
+const industryImageMap: Record<string, string> = {
+  "real estate": "/images/industry_real_estate.png",
+  "healthcare": "/images/industry_healthcare.png",
+  "hospitality": "/images/industry_hospitality.png",
+  "education": "/images/industry_education.png",
+  "service businesses": "/images/industry_service.png",
+  "service business": "/images/industry_service.png",
+  "e-commerce": "/images/industry_ecommerce.png"
 };
 
 const brandIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -208,7 +220,9 @@ export default function DigitalMarketingServiceLayout({
   services,
   whyChoose,
   faqs,
-  dashboard
+  dashboard,
+  whyChooseTitle,
+  whyChooseSubtitle
 }: DigitalMarketingServiceLayoutProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -608,17 +622,30 @@ export default function DigitalMarketingServiceLayout({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
                 {growthFunnelSteps.map((step, idx) => {
-                  const StepIcon = iconMap[step.icon.toLowerCase()] || TrendingUp;
+                  const processImages = [
+                    "/images/process_discover_v5.png",
+                    "/images/process_plan_v5.png",
+                    "/images/process_build_v5.png",
+                    "/images/process_launch_v5.png",
+                    "/images/process_grow_v5.png"
+                  ];
                   return (
-                    <div key={idx} className="flex flex-col items-center text-center space-y-4 group">
-                      <div className="relative flex h-[76px] w-[76px] items-center justify-center rounded-full bg-white border border-[#1D3D9E]/10 shadow-sm group-hover:border-[#FF6B00] transition-colors duration-300">
+                    <div key={idx} className="flex flex-col items-center text-center space-y-4 group/step">
+                      <div className="relative flex h-[76px] w-[76px] items-center justify-center rounded-full bg-white border border-[#1D3D9E]/10 shadow-sm group-hover/step:border-[#FF6B00] transition-colors duration-300">
                         <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 flex h-5 w-5 items-center justify-center rounded-full bg-white border border-[#FF6B00] text-[9px] font-black text-[#FF6B00] shadow-sm">
                           {step.step}
                         </div>
-                        <StepIcon className="w-6 h-6 text-[#1D3D9E]" />
+                        <div className="w-10 h-10 relative select-none pointer-events-none">
+                          <Image
+                            src={processImages[idx]}
+                            alt={`${step.title} Process Icon`}
+                            fill
+                            className="object-contain group-hover/step:scale-110 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="font-serif text-sm font-bold text-[#1D3D9E]">{step.title}</h4>
+                        <h4 className="font-serif text-sm font-bold text-[#1D3D9E] group-hover/step:text-[#FF6B00] transition-colors duration-300">{step.title}</h4>
                         <p className="text-[11px] text-[#0F2C59]/70 leading-relaxed max-w-[170px] mx-auto">{step.desc}</p>
                       </div>
                     </div>
@@ -638,10 +665,10 @@ export default function DigitalMarketingServiceLayout({
               <div className="lg:col-span-5 space-y-8 text-left">
                 <div className="space-y-4">
                   <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
-                    WHY PARTNER WITH US
+                    {whyChooseSubtitle || "WHY PARTNER WITH US"}
                   </span>
                   <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#1D3D9E] leading-tight">
-                    Results Over Reports, Always
+                    {whyChooseTitle || "Results Over Reports, Always"}
                   </h2>
                   <p className="text-[#0F2C59]/80 text-xs sm:text-sm max-w-xl">
                     We track real conversions, form fills, calls, and sales. No fluff metrics, just return on ad spend.
@@ -662,7 +689,7 @@ export default function DigitalMarketingServiceLayout({
                 </div>
               </div>
 
-              {/* Right: 3-Card Metrics Dashboard from Clever Crow */}
+              {/* Right: 4-Card Metrics Dashboard from Clever Crow */}
               <div className="lg:col-span-7 w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                   
@@ -671,15 +698,20 @@ export default function DigitalMarketingServiceLayout({
                     <div>
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.leadsGenerated.label}</span>
                       <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.leadsGenerated.value}</span>
-                      <span className="text-[9px] font-bold text-green-500 block mt-1.5">
-                        {activeDashboard.leadsGenerated.change} <span className="text-slate-400">vs 30d</span>
+                      <span className="text-[9px] font-bold text-green-500 block mt-1.5 font-mono">
+                        {activeDashboard.leadsGenerated.change} <span className="text-slate-400">vs last 30 days</span>
                       </span>
                     </div>
                     <div className="w-full h-8 mt-2">
-                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
-                        <defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/><stop offset="100%" stopColor="currentColor" stopOpacity="0"/></linearGradient></defs>
+                      <svg className="w-full h-full text-emerald-500" viewBox="0 0 100 30" fill="none">
+                        <defs>
+                          <linearGradient id="lg-emerald" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                            <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                          </linearGradient>
+                        </defs>
                         <path d={activeDashboard.whyChooseMetrics?.leadsMiniPath || "M0 25 Q15 20,30 22 T60 12 T100 5"} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                        <path d={`${activeDashboard.whyChooseMetrics?.leadsMiniPath || "M0 25 Q15 20,30 22 T60 12 T100 5"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.leadsMiniPath || "M0 25 Q15 20,30 22 T60 12 T100 5"} L100 30 L0 30Z`} fill="url(#lg-emerald)"/>
                       </svg>
                     </div>
                   </div>
@@ -689,14 +721,20 @@ export default function DigitalMarketingServiceLayout({
                     <div>
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.conversions.label}</span>
                       <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.conversions.value}</span>
-                      <span className="text-[9px] font-bold text-green-500 block mt-1.5">
-                        {activeDashboard.conversions.change} <span className="text-slate-400">vs 30d</span>
+                      <span className="text-[9px] font-bold text-[#4285F4] block mt-1.5 font-mono">
+                        {activeDashboard.conversions.change} <span className="text-slate-400">vs last 30 days</span>
                       </span>
                     </div>
                     <div className="w-full h-8 mt-2">
-                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
+                      <svg className="w-full h-full text-[#4285F4]" viewBox="0 0 100 30" fill="none">
+                        <defs>
+                          <linearGradient id="lg-blue" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                            <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                          </linearGradient>
+                        </defs>
                         <path d={activeDashboard.whyChooseMetrics?.conversionsMiniPath || "M0 28 Q20 22,40 18 T80 8 T100 3"} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                        <path d={`${activeDashboard.whyChooseMetrics?.conversionsMiniPath || "M0 28 Q20 22,40 18 T80 8 T100 3"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.conversionsMiniPath || "M0 28 Q20 22,40 18 T80 8 T100 3"} L100 30 L0 30Z`} fill="url(#lg-blue)"/>
                       </svg>
                     </div>
                   </div>
@@ -706,15 +744,46 @@ export default function DigitalMarketingServiceLayout({
                     <div>
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.costPerLead.label}</span>
                       <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.costPerLead.value}</span>
-                      <span className="text-[9px] font-bold text-green-500 block mt-1.5 font-mono">
-                        {activeDashboard.costPerLead.change} <span className="text-slate-400">saved</span>
+                      <span className="text-[9px] font-bold text-[#FF6B00] block mt-1.5 font-mono">
+                        {activeDashboard.costPerLead.change} <span className="text-slate-400">vs last 30 days</span>
                       </span>
                     </div>
                     <div className="w-full h-8 mt-2">
-                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
-                        <path d={activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} stroke="#10B981" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                        <path d={`${activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                      <svg className="w-full h-full text-orange-500" viewBox="0 0 100 30" fill="none">
+                        <defs>
+                          <linearGradient id="lg-orange" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                            <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                          </linearGradient>
+                        </defs>
+                        <path d={activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} L100 30 L0 30Z`} fill="url(#lg-orange)"/>
                       </svg>
+                    </div>
+                  </div>
+
+                  {/* Revenue / Ad Spend Card (spanning all 3 columns) */}
+                  <div className="sm:col-span-3 bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-sm font-sans flex flex-col sm:flex-row justify-between items-start sm:items-center min-h-[105px] gap-4">
+                    <div className="text-left">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                        {activeDashboard.revenue.label}
+                      </span>
+                      <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">
+                        {activeDashboard.revenue.value === "₹3.8L" ? "₹3,80,600" : activeDashboard.revenue.value}
+                      </span>
+                      <span className="text-[9px] font-bold text-green-500 block mt-1.5 font-mono">
+                        {activeDashboard.revenue.change} <span className="text-slate-400">vs last 30 days</span>
+                      </span>
+                    </div>
+                    {/* Animated vertical revenue/spend bars */}
+                    <div className="flex items-end gap-1.5 h-12 w-full sm:w-auto mt-2 sm:mt-0 justify-start sm:justify-end">
+                      {(activeDashboard.whyChooseMetrics?.revenueBars || [30, 45, 38, 52, 40, 48, 55, 62, 58, 68, 64, 72]).map((val, i) => (
+                        <div
+                          key={i}
+                          style={{ height: `${val}%` }}
+                          className="w-2 sm:w-2.5 bg-[#FF6B00] rounded-t-sm"
+                        />
+                      ))}
                     </div>
                   </div>
 
@@ -739,14 +808,19 @@ export default function DigitalMarketingServiceLayout({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {industries.map((ind, idx) => {
-                const IndIcon = iconMap[ind.icon] || Home;
+                const imgPath = industryImageMap[ind.title.toLowerCase()] || "/images/industry_service.png";
                 return (
                   <div
                     key={idx}
-                    className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6B00]/40 hover:shadow-md transition-all duration-300 gap-4"
+                    className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6B00]/40 hover:shadow-md transition-all duration-300 gap-4 group/ind cursor-default"
                   >
-                    <div className="w-12 h-12 rounded-full bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E]">
-                      <IndIcon size={22} className="stroke-[1.5]" />
+                    <div className="w-16 h-16 flex items-center justify-center relative select-none pointer-events-none">
+                      <Image
+                        src={imgPath}
+                        alt={`${ind.title} Icon`}
+                        fill
+                        className="object-contain group-hover/ind:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <span className="text-sm font-bold text-[#1D3D9E] block">
                       {ind.title}
@@ -849,8 +923,8 @@ export default function DigitalMarketingServiceLayout({
               <div className="bg-[#1D3D9E] rounded-[32px] p-6 text-white shadow-md relative overflow-hidden flex items-center justify-between gap-6 min-h-[140px] text-left">
                 <div className="absolute right-0 bottom-0 w-[50%] h-[100%] pointer-events-none select-none z-0">
                   <Image
-                    src="/images/ship_wheel_sketch.png"
-                    alt="Steering Wheel Background"
+                    src="/images/service_marketing_v5.png"
+                    alt="Lookout Telescope Background"
                     fill
                     className="object-contain object-right-bottom opacity-20"
                   />

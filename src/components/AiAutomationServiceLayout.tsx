@@ -65,6 +65,16 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   trendingup: TrendingUp
 };
 
+const industryImageMap: Record<string, string> = {
+  "real estate": "/images/industry_real_estate.png",
+  "healthcare": "/images/industry_healthcare.png",
+  "hospitality": "/images/industry_hospitality.png",
+  "education": "/images/industry_education.png",
+  "service businesses": "/images/industry_service.png",
+  "service business": "/images/industry_service.png",
+  "e-commerce": "/images/industry_ecommerce.png"
+};
+
 const defaultColorClasses = [
   "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
   "bg-[#FF6B00]/10 text-[#FF6B00] border-[#FF6B00]/20",
@@ -137,6 +147,20 @@ interface AiAutomationServiceLayoutProps {
   whyChoose: string[];
   faqs: FAQItem[];
   flowchart?: FlowchartData;
+  whyChooseTitle?: string;
+  whyChooseSubtitle?: string;
+  faqTitle?: string;
+  metrics?: {
+    leadsVal?: string;
+    leadsChange?: string;
+    leadsPath?: string;
+    responseVal?: string;
+    responseChange?: string;
+    responsePath?: string;
+    resolutionVal?: string;
+    resolutionChange?: string;
+    resolutionPath?: string;
+  };
 }
 
 export default function AiAutomationServiceLayout({
@@ -147,10 +171,38 @@ export default function AiAutomationServiceLayout({
   services,
   whyChoose,
   faqs,
-  flowchart
+  flowchart,
+  whyChooseTitle,
+  whyChooseSubtitle,
+  faqTitle,
+  metrics
 }: AiAutomationServiceLayoutProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const defaultMetrics = {
+    leadsVal: "2,548",
+    leadsChange: "+32.6% this month",
+    leadsPath: "M0 35 Q 20 20, 40 25 T 80 10 T 100 5",
+    responseVal: "< 20s avg",
+    responseChange: "Instant resolution",
+    responsePath: "M0 35 Q 20 30, 40 28 T 80 12 T 100 5",
+    resolutionVal: "88% rate",
+    resolutionChange: "Automated support",
+    resolutionPath: "M0 35 Q 20 32, 40 25 T 80 15 T 100 5"
+  };
+
+  const activeMetrics = {
+    leadsVal: metrics?.leadsVal ?? defaultMetrics.leadsVal,
+    leadsChange: metrics?.leadsChange ?? defaultMetrics.leadsChange,
+    leadsPath: metrics?.leadsPath ?? defaultMetrics.leadsPath,
+    responseVal: metrics?.responseVal ?? defaultMetrics.responseVal,
+    responseChange: metrics?.responseChange ?? defaultMetrics.responseChange,
+    responsePath: metrics?.responsePath ?? defaultMetrics.responsePath,
+    resolutionVal: metrics?.resolutionVal ?? defaultMetrics.resolutionVal,
+    resolutionChange: metrics?.resolutionChange ?? defaultMetrics.resolutionChange,
+    resolutionPath: metrics?.resolutionPath ?? defaultMetrics.resolutionPath,
+  };
 
   const defaultFlowchart: FlowchartData = {
     title: "CUSTOMER ACQUISITION FLOW",
@@ -435,23 +487,35 @@ export default function AiAutomationServiceLayout({
               </h2>
             </div>
 
-            <div className="relative w-full">
+             <div className="relative w-full">
               <div className="absolute top-[38px] left-[10%] right-[10%] h-[2px] bg-[#1D3D9E]/15 hidden lg:block z-0 pointer-events-none" />
               <div className="absolute top-12 bottom-36 left-1/2 -translate-x-1/2 w-0.5 border-l-2 border-dashed border-[#1D3D9E]/20 lg:hidden z-0 pointer-events-none" />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                 {howItWorksSteps.map((step, idx) => {
-                  const StepIcon = iconMap[step.icon.toLowerCase()] || Cpu;
+                  const processImages = [
+                    "/images/process_discover_v5.png",
+                    "/images/process_plan_v5.png",
+                    "/images/process_build_v5.png",
+                    "/images/process_launch_v5.png"
+                  ];
                   return (
-                    <div key={idx} className="flex flex-col items-center text-center space-y-4 group">
-                      <div className="relative flex h-[76px] w-[76px] items-center justify-center rounded-full bg-white border border-[#1D3D9E]/10 shadow-sm group-hover:border-[#FF6B00] transition-colors duration-300">
+                    <div key={idx} className="flex flex-col items-center text-center space-y-4 group/step">
+                      <div className="relative flex h-[76px] w-[76px] items-center justify-center rounded-full bg-white border border-[#1D3D9E]/10 shadow-sm group-hover/step:border-[#FF6B00] transition-colors duration-300">
                         <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 flex h-5 w-5 items-center justify-center rounded-full bg-white border border-[#FF6B00] text-[9px] font-black text-[#FF6B00] shadow-sm">
                           {step.step}
                         </div>
-                        <StepIcon className="w-6 h-6 text-[#1D3D9E]" />
+                        <div className="w-10 h-10 relative select-none pointer-events-none">
+                          <Image
+                            src={processImages[idx]}
+                            alt={`${step.title} Process Icon`}
+                            fill
+                            className="object-contain group-hover/step:scale-110 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                       <div className="space-y-1">
-                        <h4 className="font-serif text-sm font-bold text-[#1D3D9E]">{step.title}</h4>
+                        <h4 className="font-serif text-sm font-bold text-[#1D3D9E] group-hover/step:text-[#FF6B00] transition-colors duration-300">{step.title}</h4>
                         <p className="text-[11px] text-[#0F2C59]/70 leading-relaxed max-w-[170px] mx-auto">{step.desc}</p>
                       </div>
                     </div>
@@ -462,87 +526,7 @@ export default function AiAutomationServiceLayout({
           </div>
         </section>
 
-        {/* 4. WHY CHOOSE (CHECKLIST & PERFORMANCE MIX) */}
-        <section className="py-24 max-w-7xl mx-auto px-6">
-          <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] p-8 sm:p-12 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              
-              {/* Left text */}
-              <div className="lg:col-span-7 space-y-8 text-left">
-                <div className="space-y-4">
-                  <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
-                    WHY PARTNER WITH US
-                  </span>
-                  <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#1D3D9E] leading-tight">
-                    Smart Workflows, Absolute Control
-                  </h2>
-                  <p className="text-[#0F2C59]/80 text-xs sm:text-sm max-w-xl">
-                    We eliminate manual friction, reduce human error and guarantee consistent response times.
-                  </p>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {whyChoose.map((point, idx) => (
-                    <div key={idx} className="flex gap-3 items-start">
-                      <div className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-[#FF6B00] text-white shrink-0 shadow-sm">
-                        <Check className="w-3.5 h-3.5 stroke-[3.5]" />
-                      </div>
-                      <span className="text-xs sm:text-sm text-[#0F2C59]/90 font-medium leading-tight pt-0.5">
-                        {point}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: Leads Captured Mini-Dashboard Card */}
-              <div className="lg:col-span-5 flex justify-center w-full">
-                <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 shadow-md flex flex-col gap-4 font-sans max-w-sm w-full text-left">
-                  
-                  {/* Live Pulse Header */}
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                    <div className="flex items-center gap-1.5">
-                      <span className="flex h-2 w-2 relative">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                      </span>
-                      <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Live Performance</span>
-                    </div>
-                    <span className="text-[9px] font-black text-[#FF6B00] bg-[#FF6B00]/10 px-2 py-0.5 rounded-md uppercase tracking-wide">
-                      Active Pulse
-                    </span>
-                  </div>
-
-                  {/* Leads Captured Segment */}
-                  <div className="flex justify-between items-center py-2">
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-400 block tracking-wider uppercase">Leads Captured</span>
-                      <span className="text-2xl font-black text-[#1D3D9E] mt-1 block leading-none font-serif">2,548</span>
-                      <span className="text-[10px] font-bold text-green-500 block mt-1.5">+32.6% this month</span>
-                    </div>
-                    
-                    {/* SVG graph line */}
-                    <div className="w-28 h-12 shrink-0 relative flex items-center">
-                      <svg className="w-full h-full text-green-500 overflow-visible" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                          <linearGradient id="leadsGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="currentColor" stopOpacity="0.25" />
-                            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M0 35 Q 20 20, 40 25 T 80 10 T 100 5" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M0 35 Q 20 20, 40 25 T 80 10 T 100 5 L 100 40 L 0 40 Z" fill="url(#leadsGradient)" />
-                        <circle cx="100" cy="5" r="3" fill="currentColor" className="animate-pulse" />
-                      </svg>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
 
         {/* 5. INDUSTRY BENEFITS SECTION */}
         <section className="py-24 bg-sand-100 border-t border-b border-[#1D3D9E]/10">
@@ -558,14 +542,19 @@ export default function AiAutomationServiceLayout({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {industryHelps.map((ind, idx) => {
-                const IndIcon = iconMap[ind.icon] || Home;
+                const imgPath = industryImageMap[ind.title.toLowerCase()] || "/images/industry_service.png";
                 return (
                   <div
                     key={idx}
-                    className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6B00]/40 hover:shadow-md transition-all duration-300 gap-4"
+                    className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-[#FF6B00]/40 hover:shadow-md transition-all duration-300 gap-4 group/ind cursor-default"
                   >
-                    <div className="w-12 h-12 rounded-full bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E]">
-                      <IndIcon size={22} className="stroke-[1.5]" />
+                    <div className="w-16 h-16 flex items-center justify-center relative select-none pointer-events-none">
+                      <Image
+                        src={imgPath}
+                        alt={`${ind.title} Icon`}
+                        fill
+                        className="object-contain group-hover/ind:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <div className="space-y-1">
                       <span className="text-sm font-bold text-[#1D3D9E] block">
@@ -582,132 +571,48 @@ export default function AiAutomationServiceLayout({
           </div>
         </section>
 
-        {/* 6. TESTIMONIALS & FAQ */}
+        {/* 6. UNIFIED WHY CHOOSE, FAQ & CTA SECTION (CLEVER CROW STYLE) */}
         <section className="py-24 max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Testimonials */}
-            <div className="lg:col-span-6 flex flex-col justify-between relative z-10 space-y-6">
-              
-              <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] p-8 shadow-sm relative flex flex-col justify-between flex-grow min-h-[300px]">
-                
-                <button 
-                  type="button"
-                  onClick={() => setActiveTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-                  className="absolute -left-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-md hover:border-[#FF6B00] hover:text-[#FF6B00] transition-all z-30 cursor-pointer text-slate-500"
-                >
-                  <ChevronLeft size={16} className="stroke-[2.5]" />
-                </button>
-
-                <button 
-                  type="button"
-                  onClick={() => setActiveTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-                  className="absolute -right-4 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-md hover:border-[#FF6B00] hover:text-[#FF6B00] transition-all z-30 cursor-pointer text-slate-500"
-                >
-                  <ChevronRight size={16} className="stroke-[2.5]" />
-                </button>
-
-                <div className="min-h-[160px] flex-grow flex flex-col justify-between overflow-hidden text-left">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeTestimonial}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.2, ease: "easeInOut" }}
-                      className="flex flex-col justify-between flex-grow"
-                    >
-                      <div>
-                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FF6B00] mb-3 block">
-                          CLIENT TESTIMONIAL
-                        </span>
-                        <h3 className="font-serif text-lg font-extrabold text-[#1D3D9E] leading-tight">
-                          Automating bottlenecks, simplifying customer acquisition.
-                        </h3>
-
-                        <div className="mt-6 relative">
-                          <span className="text-4xl font-serif text-[#FF6B00]/10 absolute -top-4 -left-1 select-none">“</span>
-                          <p className="text-xs sm:text-sm text-[#0F2C59]/80 leading-relaxed pl-6 relative z-10 min-h-[50px] italic">
-                            {testimonials[activeTestimonial].quote}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-6 flex items-center justify-between border-t border-[#1D3D9E]/5 pt-4">
-                        <div className="flex items-center gap-3">
-                          <div className="h-10 w-10 rounded-full bg-[#FF6B00]/10 text-[#FF6B00] flex items-center justify-center font-black text-xs shrink-0 shadow-sm border border-[#FF6B00]/5">
-                            {testimonials[activeTestimonial].avatar}
-                          </div>
-                          <div>
-                            <span className="text-xs font-bold text-[#1D3D9E] block leading-tight">
-                              {testimonials[activeTestimonial].author}
-                            </span>
-                            <span className="text-[10px] font-semibold text-slate-400 block mt-1 leading-none">
-                              {testimonials[activeTestimonial].role}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex gap-0.5 text-[#FF6B00] text-sm select-none">
-                          {"★".repeat(testimonials[activeTestimonial].rating)}
-                        </div>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                <div className="flex justify-center gap-1.5 mt-5">
-                  {testimonials.map((_, idx) => (
-                    <button
-                      type="button"
-                      key={idx}
-                      onClick={() => setActiveTestimonial(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${activeTestimonial === idx ? "w-6 bg-[#FF6B00]" : "w-1.5 bg-slate-200 hover:bg-slate-300"}`}
-                    />
-                  ))}
-                </div>
-
+            {/* Column 1: Why Choose (Checklist) */}
+            <div className="lg:col-span-5 space-y-8 text-left">
+              <div className="space-y-4">
+                <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
+                  {whyChooseSubtitle || "WHY PARTNER WITH US"}
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#1D3D9E] leading-tight">
+                  {whyChooseTitle || "Smart Workflows, Absolute Control"}
+                </h2>
+                <p className="text-[#0F2C59]/80 text-xs sm:text-sm max-w-xl">
+                  We eliminate manual friction, reduce human error and guarantee consistent response times.
+                </p>
               </div>
 
-              {/* Blue CTA Banner */}
-              <div className="bg-[#1D3D9E] rounded-[32px] p-6 text-white shadow-md relative overflow-hidden flex items-center justify-between gap-6 min-h-[140px] text-left">
-                <div className="absolute right-0 bottom-0 w-[50%] h-[100%] pointer-events-none select-none z-0">
-                  <Image
-                    src="/images/ship_wheel_sketch.png"
-                    alt="Steering Wheel Background"
-                    fill
-                    className="object-contain object-right-bottom opacity-20"
-                  />
-                </div>
-
-                <div className="relative z-10">
-                  <h4 className="font-serif text-lg font-extrabold leading-tight text-white">
-                    Need Automation Flow?
-                  </h4>
-                  <p className="text-xs text-white/80 leading-snug mt-1">
-                    Let's design a custom system to capture and qualify leads instantly.
-                  </p>
-                </div>
-
-                <Link
-                  href={`/contact?service=${encodeURIComponent(serviceName)}`}
-                  className="relative z-10 flex items-center justify-center gap-1.5 bg-[#FF6B00] hover:bg-[#E05E00] text-white hover:scale-[1.01] active:scale-95 transition-all px-6 py-3.5 rounded-xl font-bold text-xs shrink-0 shadow-md cursor-pointer"
-                >
-                  <span>Get Started</span>
-                  <ArrowRight size={12} className="stroke-[3.5]" />
-                </Link>
+              <div className="flex flex-col gap-4 font-sans">
+                {whyChoose.map((point, idx) => (
+                  <div key={idx} className="flex gap-3 items-start">
+                    <div className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-[#FF6B00] text-white shrink-0 shadow-sm mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[3.5]" />
+                    </div>
+                    <span className="text-xs sm:text-sm text-[#0F2C59]/90 font-medium leading-tight">
+                      {point}
+                    </span>
+                  </div>
+                ))}
               </div>
-
             </div>
 
-            {/* Right Column: FAQs */}
-            <div className="lg:col-span-6 flex flex-col justify-start text-left">
-              <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block mb-3">
-                FREQUENTLY ASKED QUESTIONS
-              </span>
-              <h2 className="font-serif text-2xl sm:text-[28px] font-extrabold text-[#1D3D9E] tracking-tight mb-8">
-                Got Questions? We've Got Answers.
-              </h2>
+            {/* Column 2: FAQs */}
+            <div className="lg:col-span-4 flex flex-col justify-start text-left">
+              <div className="space-y-4 mb-8">
+                <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
+                  FREQUENTLY ASKED QUESTIONS
+                </span>
+                <h2 className="font-serif text-2xl sm:text-[28px] font-extrabold text-[#1D3D9E] tracking-tight">
+                  {faqTitle || "Got Questions?"}
+                </h2>
+              </div>
 
               <div className="flex flex-col gap-4">
                 {faqs.map((faq, i) => (
@@ -741,6 +646,127 @@ export default function AiAutomationServiceLayout({
                     </AnimatePresence>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Column 3: Premium Bot Consultation Card */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#FFFDF9] to-[#FFF9EE] border border-[#FF6B00]/10 rounded-[32px] p-6 text-center shadow-sm flex flex-col items-center justify-between min-h-[380px] relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[#FF6B00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              
+              <div className="w-full space-y-4">
+                <div className="relative w-36 h-36 mx-auto select-none pointer-events-none">
+                  <Image
+                    src="/images/nautical_bot_sketch.png"
+                    alt="AI Assistant Robot Illustration"
+                    fill
+                    className="object-contain filter drop-shadow-sm"
+                  />
+                </div>
+                
+                <h3 className="font-serif text-lg sm:text-xl font-extrabold text-[#1D3D9E] leading-tight px-2">
+                  Ready to Automate Your Business?
+                </h3>
+              </div>
+
+              <Link
+                href={`/contact?service=${encodeURIComponent(serviceName)}`}
+                className="w-full mt-6 flex items-center justify-center gap-1.5 bg-[#FF6B00] hover:bg-[#E05E00] text-white hover:scale-[1.01] active:scale-95 transition-all px-6 py-4 rounded-2xl font-bold text-xs shrink-0 shadow-md cursor-pointer tracking-wider uppercase"
+              >
+                <span>Book Consultation</span>
+                <ArrowRight size={12} className="stroke-[3.5]" />
+              </Link>
+            </div>
+
+          </div>
+
+          {/* Bottom row: 3 metrics cards side-by-side */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 text-left">
+            
+            {/* Card 1: Leads Captured */}
+            <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-sm font-sans flex items-center justify-between min-h-[105px]">
+              <div>
+                <span className="flex items-center gap-1.5">
+                  <span className="flex h-1.5 w-1.5 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Live Performance</span>
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1.5">Leads Captured</span>
+                <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1">{activeMetrics.leadsVal}</span>
+                <span className="text-[9px] font-bold text-green-500 block mt-1 font-mono">
+                  {activeMetrics.leadsChange}
+                </span>
+              </div>
+              <div className="w-24 h-10 relative flex items-end">
+                <svg className="w-full h-full text-emerald-500 overflow-visible" viewBox="0 0 100 30" fill="none">
+                  <defs>
+                    <linearGradient id="g-leads" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                      <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d={activeMetrics.leadsPath} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  <path d={`${activeMetrics.leadsPath} L100 30 L0 30Z`} fill="url(#g-leads)"/>
+                </svg>
+              </div>
+            </div>
+
+            {/* Card 2: Response Time */}
+            <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-sm font-sans flex items-center justify-between min-h-[105px]">
+              <div>
+                <span className="flex items-center gap-1.5">
+                  <span className="flex h-1.5 w-1.5 relative">
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500"></span>
+                  </span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Response Efficiency</span>
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1.5">Response Time</span>
+                <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1">{activeMetrics.responseVal}</span>
+                <span className="text-[9px] font-bold text-orange-500 block mt-1 font-mono">
+                  {activeMetrics.responseChange}
+                </span>
+              </div>
+              <div className="w-24 h-10 relative flex items-end">
+                <svg className="w-full h-full text-orange-500 overflow-visible" viewBox="0 0 100 30" fill="none">
+                  <defs>
+                    <linearGradient id="g-response" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                      <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d={activeMetrics.responsePath} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  <path d={`${activeMetrics.responsePath} L100 30 L0 30Z`} fill="url(#g-response)"/>
+                </svg>
+              </div>
+            </div>
+
+            {/* Card 3: AI Resolution Rate */}
+            <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-sm font-sans flex items-center justify-between min-h-[105px]">
+              <div>
+                <span className="flex items-center gap-1.5">
+                  <span className="flex h-1.5 w-1.5 relative">
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
+                  </span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Automation Rate</span>
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1.5">AI Resolution</span>
+                <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1">{activeMetrics.resolutionVal}</span>
+                <span className="text-[9px] font-bold text-blue-500 block mt-1 font-mono">
+                  {activeMetrics.resolutionChange}
+                </span>
+              </div>
+              <div className="w-24 h-10 relative flex items-end">
+                <svg className="w-full h-full text-[#4285F4] overflow-visible" viewBox="0 0 100 30" fill="none">
+                  <defs>
+                    <linearGradient id="g-resolution" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/>
+                      <stop offset="100%" stopColor="currentColor" stopOpacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d={activeMetrics.resolutionPath} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  <path d={`${activeMetrics.resolutionPath} L100 30 L0 30Z`} fill="url(#g-resolution)"/>
+                </svg>
               </div>
             </div>
 

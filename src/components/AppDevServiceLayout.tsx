@@ -580,7 +580,7 @@ export default function AppDevServiceLayout({
                 {/* background overlay */}
                 <div className="absolute right-0 bottom-0 w-[50%] h-[100%] pointer-events-none select-none z-0">
                   <Image
-                    src="/images/ship_wheel_sketch.png"
+                    src="/images/service_app_v5.png"
                     alt="Steering Wheel Background"
                     fill
                     className="object-contain object-right-bottom opacity-20"

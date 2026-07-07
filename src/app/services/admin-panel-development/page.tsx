@@ -436,10 +436,10 @@ export default function AdminPanelDevelopmentPage() {
               {/* background overlay */}
               <div className="absolute right-0 bottom-0 w-[85%] h-[55%] pointer-events-none select-none z-0">
                 <Image
-                  src="/images/ship_wheel_sketch.png"
+                  src="/images/service_app_v5.png"
                   alt="Steering Wheel Background"
                   fill
-                  className="object-contain object-right-bottom opacity-90"
+                  className="object-contain object-right-bottom opacity-20"
                 />
               </div>
 
