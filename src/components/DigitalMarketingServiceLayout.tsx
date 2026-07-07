@@ -42,10 +42,10 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-// Brand SVGs
+// Brand icons
 function GoogleAdsBrandIcon() {
   return (
-    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998z" fill="#34A853"/>
       <path d="M23.4641 16.9287L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644z" fill="#FBBC05"/>
       <path d="M7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z" fill="#4285F4"/>
@@ -55,7 +55,7 @@ function GoogleAdsBrandIcon() {
 
 function FacebookBrandIcon() {
   return (
-    <svg className="w-5 h-5 fill-[#1877F2]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-4 h-4 fill-[#1877F2]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
     </svg>
   );
@@ -63,7 +63,7 @@ function FacebookBrandIcon() {
 
 function LinkedInBrandIcon() {
   return (
-    <svg className="w-5 h-5 fill-[#0A66C2]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-4 h-4 fill-[#0A66C2]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     </svg>
   );
@@ -71,9 +71,17 @@ function LinkedInBrandIcon() {
 
 function YouTubeBrandIcon() {
   return (
-    <svg className="w-5 h-5 fill-[#FF0000]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-4 h-4 fill-[#FF0000]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.53 3.545 12 3.545 12 3.545s-7.53 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.022 0 12 0 12s0 3.978.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.858.508 9.388.508 9.388.508s7.53 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.978 24 12 24 12s0-3.978-.502-5.837z"/>
       <polygon fill="#FFFFFF" points="9.545 15.568 15.818 12 9.545 8.432"/>
+    </svg>
+  );
+}
+
+function InstagramBrandIcon() {
+  return (
+    <svg className="w-4 h-4 fill-[#E1306C]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
     </svg>
   );
 }
@@ -117,6 +125,13 @@ export type LineChartData = {
   dates: string[];
 };
 
+export type DonutSlice = {
+  name: string;
+  percentage: number;
+  colorClass: string;
+  strokeColor: string;
+};
+
 export type DashboardData = {
   leadsGenerated: DashboardStat;
   conversions: DashboardStat;
@@ -124,6 +139,21 @@ export type DashboardData = {
   costPerLead: DashboardStat;
   lineChart: LineChartData;
   activePlatforms: string[];
+  trafficGrowth?: {
+    value: string;
+    change: string;
+    isIncrease: boolean;
+  };
+  channelMix?: {
+    slices: DonutSlice[];
+    primarySource: string;
+  };
+  whyChooseMetrics?: {
+    leadsMiniPath?: string;
+    conversionsMiniPath?: string;
+    cplMiniPath?: string;
+    revenueBars?: number[];
+  };
 };
 
 type ServiceItem = {
@@ -160,6 +190,14 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   graduationcap: GraduationCap,
   shoppingcart: ShoppingCart,
   briefcase: Briefcase
+};
+
+const brandIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  google: GoogleAdsBrandIcon,
+  facebook: FacebookBrandIcon,
+  linkedin: LinkedInBrandIcon,
+  youtube: YouTubeBrandIcon,
+  instagram: InstagramBrandIcon
 };
 
 export default function DigitalMarketingServiceLayout({
@@ -207,10 +245,32 @@ export default function DigitalMarketingServiceLayout({
       conversionsPath: "M0 105 Q 50 100, 80 90 T 160 70 T 240 80 T 320 50 T 400 30",
       dates: ["Apr 7", "Apr 14", "Apr 21", "Apr 28", "May 5"]
     },
-    activePlatforms: ["google", "facebook", "linkedin", "youtube"]
+    activePlatforms: ["google", "facebook", "linkedin", "youtube"],
+    trafficGrowth: {
+      value: "+64.2%",
+      change: "↑ 12.4% vs last week",
+      isIncrease: true
+    },
+    channelMix: {
+      slices: [
+        { name: "Google Ads", percentage: 40, colorClass: "bg-[#1D3D9E]", strokeColor: "#1D3D9E" },
+        { name: "Meta Ads", percentage: 28, colorClass: "bg-[#FF6B00]", strokeColor: "#FF6B00" },
+        { name: "Organic Search", percentage: 18, colorClass: "bg-emerald-500", strokeColor: "#10B981" },
+        { name: "Social Media", percentage: 14, colorClass: "bg-amber-500", strokeColor: "#F59E0B" }
+      ],
+      primarySource: "Google Search"
+    },
+    whyChooseMetrics: {
+      leadsMiniPath: "M0 25 Q15 20,30 22 T60 12 T100 5",
+      conversionsMiniPath: "M0 28 Q20 22,40 18 T80 8 T100 3",
+      cplMiniPath: "M0 8 Q20 10,40 15 T80 22 T100 25",
+      revenueBars: [28, 35, 22, 40, 32, 48, 38, 55, 45, 60, 52, 65]
+    }
   };
 
   const activeDashboard = dashboard || DEFAULT_DASHBOARD;
+  const activeTrafficGrowth = activeDashboard.trafficGrowth || DEFAULT_DASHBOARD.trafficGrowth!;
+  const activeChannelMix = activeDashboard.channelMix || DEFAULT_DASHBOARD.channelMix!;
 
   const growthFunnelSteps = [
     { step: "01", title: "Understand", desc: "We analyse your business, audience & goals.", icon: "search" },
@@ -218,6 +278,13 @@ export default function DigitalMarketingServiceLayout({
     { step: "03", title: "Execute", desc: "We launch & optimize high-performing campaigns.", icon: "rocket" },
     { step: "04", title: "Measure", desc: "We track, analyse & report real-time results.", icon: "barchart3" },
     { step: "05", title: "Scale", desc: "We scale what works and maximize growth.", icon: "trendingup" }
+  ];
+
+  const heroBullets = [
+    { title: "Performance Focused", desc: "Every campaign is built for measurable ROI.", icon: "target" },
+    { title: "Data-Driven Strategy", desc: "Smarter decisions backed by real insights.", icon: "barchart3" },
+    { title: "Transparent Reporting", desc: "Clear dashboards & real-time updates.", icon: "monitor" },
+    { title: "Growth Guaranteed", desc: "We're committed to your long-term growth.", icon: "trendingup" }
   ];
 
   const industries = [
@@ -235,7 +302,7 @@ export default function DigitalMarketingServiceLayout({
       <main className="flex-grow">
         
         {/* 1. HERO SECTION */}
-        <section className="relative bg-white pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center min-h-[85vh]">
+        <section className="relative bg-white pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden flex flex-col justify-center min-h-[85vh]">
           {/* DESKTOP BACKGROUND WATERMARK */}
           <div className="absolute right-0 bottom-0 top-12 w-[45%] pointer-events-none select-none z-0 opacity-35 hidden lg:block">
             <Image
@@ -259,17 +326,17 @@ export default function DigitalMarketingServiceLayout({
             />
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left Column */}
-            <div className="lg:col-span-5 space-y-8 text-left">
+            <div className="lg:col-span-5 space-y-8 text-left pt-4">
               <div className="space-y-4">
                 <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
                   {eyebrow}
                 </span>
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-[#1D3D9E] leading-[1.12] max-w-2xl">
+                <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-[#1D3D9E] leading-[1.12] max-w-xl">
                   {heroTitle}
                 </h1>
-                <p className="text-[#0F2C59]/85 text-base sm:text-lg leading-relaxed max-w-xl">
+                <p className="text-[#0F2C59]/85 text-base sm:text-lg leading-relaxed max-w-md">
                   {heroSubtitle}
                 </p>
               </div>
@@ -294,93 +361,186 @@ export default function DigitalMarketingServiceLayout({
               </div>
             </div>
 
-            {/* Right Column: High-Fidelity Performance Dashboard */}
+            {/* Right Column: High-Fidelity Performance Dashboard Sidebar Grid */}
             <div className="lg:col-span-7 w-full flex flex-col justify-center z-10">
-              <div className="relative bg-white border border-[#1D3D9E]/10 rounded-[32px] p-6 shadow-xl max-w-2xl mx-auto w-full text-left overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
                 
-                {/* Dashboard Header */}
-                <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-100 pb-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1D3D9E]/5 text-[#1D3D9E]">
-                      <BarChart3 size={18} className="stroke-[2]" />
+                {/* Main Overview Card */}
+                <div className="sm:col-span-7 lg:col-span-7 xl:col-span-8 bg-white border border-[#1D3D9E]/10 rounded-[28px] p-6 shadow-xl font-sans flex flex-col justify-between text-left">
+                  <div>
+                    {/* Header */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-100 pb-4">
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1D3D9E]/5 text-[#1D3D9E]">
+                          <BarChart3 size={18} className="stroke-[2]" />
+                        </div>
+                        <span className="text-sm font-bold text-[#1D3D9E] tracking-tight">Campaign Analytics</span>
+                      </div>
+
+                      {/* Legend */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                          <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
+                          <span>{activeDashboard.lineChart.leadsLabel || "Leads"}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                          <span className="w-2 h-2 rounded-full bg-[#1D3D9E]" />
+                          <span>{activeDashboard.lineChart.conversionsLabel || "Conversions"}</span>
+                        </div>
+                      </div>
                     </div>
-                    <span className="text-sm font-bold text-[#1D3D9E] tracking-tight">Campaign Analytics</span>
+
+                    {/* Stats Rows */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+                      <div className="bg-[#FAF5EE]/60 border border-[#1D3D9E]/5 rounded-xl p-2.5">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.leadsGenerated.label}</span>
+                        <span className="text-base font-black text-[#1D3D9E] block leading-none mt-1">{activeDashboard.leadsGenerated.value}</span>
+                        <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.leadsGenerated.change}</span>
+                      </div>
+                      <div className="bg-[#FAF5EE]/60 border border-[#1D3D9E]/5 rounded-xl p-2.5">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.conversions.label}</span>
+                        <span className="text-base font-black text-[#1D3D9E] block leading-none mt-1">{activeDashboard.conversions.value}</span>
+                        <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.conversions.change}</span>
+                      </div>
+                      <div className="bg-[#FAF5EE]/60 border border-[#1D3D9E]/5 rounded-xl p-2.5">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.revenue.label}</span>
+                        <span className="text-base font-black text-[#1D3D9E] block leading-none mt-1">{activeDashboard.revenue.value}</span>
+                        <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.revenue.change}</span>
+                      </div>
+                      <div className="bg-[#FAF5EE]/60 border border-[#1D3D9E]/5 rounded-xl p-2.5">
+                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.costPerLead.label}</span>
+                        <span className="text-base font-black text-[#1D3D9E] block leading-none mt-1">{activeDashboard.costPerLead.value}</span>
+                        <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.costPerLead.change}</span>
+                      </div>
+                    </div>
+
+                    {/* Chart */}
+                    <div className="relative h-[115px] w-full">
+                      <svg className="w-full h-full overflow-visible" viewBox="0 0 400 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" y1="15" x2="400" y2="15" stroke="#f1f5f9" strokeWidth="1" />
+                        <line x1="0" y1="50" x2="400" y2="50" stroke="#f1f5f9" strokeWidth="1" />
+                        <line x1="0" y1="85" x2="400" y2="85" stroke="#f1f5f9" strokeWidth="1" />
+                        <path d={activeDashboard.lineChart.leadsPath} stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+                        <path d={activeDashboard.lineChart.conversionsPath} stroke="#1D3D9E" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="6 4" />
+                        {activeDashboard.lineChart.dates.map((date, idx) => {
+                          const xCoords = [12, 100, 195, 290, 388];
+                          const anchors = ["start", "middle", "middle", "middle", "end"] as const;
+                          return (
+                            <text key={idx} x={xCoords[idx]} y="108" fill="#94a3b8" fontSize="8" fontWeight="600" textAnchor={anchors[idx]}>
+                              {date}
+                            </text>
+                          );
+                        })}
+                      </svg>
+                    </div>
                   </div>
 
-                  {/* Legend */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                      <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-                      <span>{activeDashboard.lineChart.leadsLabel || "Leads"}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                      <span className="w-2 h-2 rounded-full bg-[#1D3D9E]" />
-                      <span>{activeDashboard.lineChart.conversionsLabel || "Conversions"}</span>
+                  {/* Active Platforms */}
+                  <div className="mt-4 pt-4 border-t border-slate-100/60 flex items-center justify-between">
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Active Platforms</span>
+                    <div className="flex items-center gap-1.5">
+                      {activeDashboard.activePlatforms.map((plat) => {
+                        const IconComponent = brandIconMap[plat.toLowerCase()];
+                        if (!IconComponent) return null;
+                        return (
+                          <div key={plat} className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 border border-slate-100 shadow-sm">
+                            <IconComponent />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
 
-                {/* 4 Stats Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-[#FAF5EE]/50 border border-[#1D3D9E]/5 rounded-xl p-3">
-                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.leadsGenerated.label}</span>
-                    <span className="text-lg font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.leadsGenerated.value}</span>
-                    <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.leadsGenerated.change}</span>
+                {/* Right sidebar column cards */}
+                <div className="sm:col-span-5 lg:col-span-5 xl:col-span-4 flex flex-col gap-4 text-left">
+                  
+                  {/* Traffic Growth Card */}
+                  <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-md flex flex-col justify-between h-[120px]">
+                    <div>
+                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">Traffic Growth</span>
+                      <span className="text-2xl font-black text-[#FF6B00] block mt-1.5">{activeTrafficGrowth.value}</span>
+                    </div>
+                    <span className="text-[8px] font-bold text-slate-400/80 block mt-2">
+                      <span className="text-green-500 font-extrabold">{activeTrafficGrowth.change.split(" vs ")[0]}</span>
+                      {" vs " + activeTrafficGrowth.change.split(" vs ")[1]}
+                    </span>
                   </div>
-                  <div className="bg-[#FAF5EE]/50 border border-[#1D3D9E]/5 rounded-xl p-3">
-                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.conversions.label}</span>
-                    <span className="text-lg font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.conversions.value}</span>
-                    <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.conversions.change}</span>
-                  </div>
-                  <div className="bg-[#FAF5EE]/50 border border-[#1D3D9E]/5 rounded-xl p-3">
-                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.revenue.label}</span>
-                    <span className="text-lg font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.revenue.value}</span>
-                    <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.revenue.change}</span>
-                  </div>
-                  <div className="bg-[#FAF5EE]/50 border border-[#1D3D9E]/5 rounded-xl p-3">
-                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block">{activeDashboard.costPerLead.label}</span>
-                    <span className="text-lg font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.costPerLead.value}</span>
-                    <span className="text-[9px] font-bold text-green-500 mt-1 block">{activeDashboard.costPerLead.change}</span>
-                  </div>
-                </div>
 
-                {/* Line Chart Area */}
-                <div className="relative h-[130px] w-full mb-4">
-                  <svg className="w-full h-full overflow-visible" viewBox="0 0 400 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0" y1="20" x2="400" y2="20" stroke="#f1f5f9" strokeWidth="1" />
-                    <line x1="0" y1="60" x2="400" y2="60" stroke="#f1f5f9" strokeWidth="1" />
-                    <line x1="0" y1="100" x2="400" y2="100" stroke="#f1f5f9" strokeWidth="1" />
-                    
-                    {/* Leads (Orange) */}
-                    <path d={activeDashboard.lineChart.leadsPath} stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-                    
-                    {/* Conversions (Blue) */}
-                    <path d={activeDashboard.lineChart.conversionsPath} stroke="#1D3D9E" strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="6 4" />
-                    
-                    {activeDashboard.lineChart.dates.map((date, idx) => {
-                      const xCoords = [12, 100, 195, 290, 388];
-                      const anchors = ["start", "middle", "middle", "middle", "end"] as const;
-                      return (
-                        <text key={idx} x={xCoords[idx]} y="123" fill="#94a3b8" fontSize="9" fontWeight="600" textAnchor={anchors[idx]}>
-                          {date}
-                        </text>
-                      );
-                    })}
-                  </svg>
-                </div>
-
-                {/* Active Channels */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Active Platforms</span>
-                  <div className="flex items-center gap-3">
-                    <GoogleAdsBrandIcon />
-                    <FacebookBrandIcon />
-                    <LinkedInBrandIcon />
-                    <YouTubeBrandIcon />
+                  {/* Channel Mix Card */}
+                  <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-5 shadow-md flex flex-col justify-between flex-grow">
+                    <div>
+                      <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider block mb-2">Channel Mix</span>
+                      
+                      {/* Donut chart */}
+                      <div className="flex flex-col items-center gap-4 justify-center py-1">
+                        <div className="w-16 h-16 shrink-0 relative">
+                          <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                            <circle cx="18" cy="18" r="14" fill="none" stroke="#f1f5f9" strokeWidth="5" />
+                            {(() => {
+                              let accumulatedPercent = 0;
+                              return activeChannelMix.slices.map((slice, i) => {
+                                const dashoffset = -accumulatedPercent;
+                                accumulatedPercent += slice.percentage;
+                                return (
+                                  <circle
+                                    key={i}
+                                    cx="18"
+                                    cy="18"
+                                    r="14"
+                                    fill="none"
+                                    stroke={slice.strokeColor}
+                                    strokeWidth="5"
+                                    pathLength={100}
+                                    strokeDasharray={`${slice.percentage} ${100 - slice.percentage}`}
+                                    strokeDashoffset={dashoffset}
+                                    strokeLinecap="round"
+                                  />
+                                );
+                              });
+                            })()}
+                          </svg>
+                        </div>
+                        
+                        <div className="flex flex-col gap-1 text-[9px] font-bold text-slate-500 w-fit mx-auto">
+                          {activeChannelMix.slices.map((slice, i) => (
+                            <div key={i} className="flex items-center gap-1.5 whitespace-nowrap">
+                              <span className={`w-2 h-2 rounded-full shrink-0 ${slice.colorClass}`} />
+                              <span>{slice.name} {slice.percentage}%</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                 </div>
 
               </div>
+            </div>
+          </div>
+
+          {/* HERO BOTTOM BULLETS */}
+          <div className="max-w-7xl mx-auto px-6 w-full mt-12 pt-8 border-t border-[#1D3D9E]/5 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {heroBullets.map((bullet, idx) => {
+                const BulletIcon = iconMap[bullet.icon.toLowerCase()] || Clock;
+                return (
+                  <div key={idx} className="flex gap-4 items-center bg-slate-50 border border-slate-100 rounded-2xl p-4.5 hover:border-[#FF6B00]/20 transition-all duration-200">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1D3D9E]/5 text-[#1D3D9E] shrink-0">
+                      <BulletIcon size={18} className="stroke-[2]" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xs font-bold text-[#1D3D9E] tracking-tight leading-tight">
+                        {bullet.title}
+                      </h3>
+                      <p className="text-[10px] font-medium text-[#0F2C59]/60 mt-1 leading-snug">
+                        {bullet.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -469,13 +629,13 @@ export default function DigitalMarketingServiceLayout({
           </div>
         </section>
 
-        {/* 4. WHY CHOOSE PARTNERSHIP */}
+        {/* 4. WHY CHOOSE PARTNERSHIP (WITH 4-CARD METRICS DASHBOARD) */}
         <section className="py-24 max-w-7xl mx-auto px-6">
           <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] p-8 sm:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left text */}
-              <div className="lg:col-span-7 space-y-8 text-left">
+              <div className="lg:col-span-5 space-y-8 text-left">
                 <div className="space-y-4">
                   <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
                     WHY PARTNER WITH US
@@ -488,13 +648,13 @@ export default function DigitalMarketingServiceLayout({
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {whyChoose.map((point, idx) => (
+                <div className="flex flex-col gap-4 font-sans">
+                  {whyChoose.slice(0, 5).map((point, idx) => (
                     <div key={idx} className="flex gap-3 items-start">
-                      <div className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-[#FF6B00] text-white shrink-0 shadow-sm">
+                      <div className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-emerald-500 text-white shrink-0 shadow-sm mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[3.5]" />
                       </div>
-                      <span className="text-xs sm:text-sm text-[#0F2C59]/90 font-medium leading-tight pt-0.5">
+                      <span className="text-xs sm:text-sm text-[#0F2C59]/90 font-medium leading-tight">
                         {point}
                       </span>
                     </div>
@@ -502,20 +662,63 @@ export default function DigitalMarketingServiceLayout({
                 </div>
               </div>
 
-              {/* Right Illustration */}
-              <div className="lg:col-span-5 flex justify-center">
-                <motion.div
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-72 h-72 select-none pointer-events-none"
-                >
-                  <Image
-                    src="/images/sailboat_waves_sketch.png"
-                    alt="Sailboat Illustration"
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
+              {/* Right: 3-Card Metrics Dashboard from Clever Crow */}
+              <div className="lg:col-span-7 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                  
+                  {/* Leads Card */}
+                  <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-4.5 shadow-sm font-sans flex flex-col justify-between h-[150px]">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.leadsGenerated.label}</span>
+                      <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.leadsGenerated.value}</span>
+                      <span className="text-[9px] font-bold text-green-500 block mt-1.5">
+                        {activeDashboard.leadsGenerated.change} <span className="text-slate-400">vs 30d</span>
+                      </span>
+                    </div>
+                    <div className="w-full h-8 mt-2">
+                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
+                        <defs><linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="currentColor" stopOpacity="0.2"/><stop offset="100%" stopColor="currentColor" stopOpacity="0"/></linearGradient></defs>
+                        <path d={activeDashboard.whyChooseMetrics?.leadsMiniPath || "M0 25 Q15 20,30 22 T60 12 T100 5"} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.leadsMiniPath || "M0 25 Q15 20,30 22 T60 12 T100 5"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Conversions Card */}
+                  <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-4.5 shadow-sm font-sans flex flex-col justify-between h-[150px]">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.conversions.label}</span>
+                      <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.conversions.value}</span>
+                      <span className="text-[9px] font-bold text-green-500 block mt-1.5">
+                        {activeDashboard.conversions.change} <span className="text-slate-400">vs 30d</span>
+                      </span>
+                    </div>
+                    <div className="w-full h-8 mt-2">
+                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
+                        <path d={activeDashboard.whyChooseMetrics?.conversionsMiniPath || "M0 28 Q20 22,40 18 T80 8 T100 3"} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.conversionsMiniPath || "M0 28 Q20 22,40 18 T80 8 T100 3"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Cost Per Lead Card */}
+                  <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-4.5 shadow-sm font-sans flex flex-col justify-between h-[150px]">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">{activeDashboard.costPerLead.label}</span>
+                      <span className="text-xl font-black text-[#1D3D9E] block leading-none mt-1.5">{activeDashboard.costPerLead.value}</span>
+                      <span className="text-[9px] font-bold text-green-500 block mt-1.5 font-mono">
+                        {activeDashboard.costPerLead.change} <span className="text-slate-400">saved</span>
+                      </span>
+                    </div>
+                    <div className="w-full h-8 mt-2">
+                      <svg className="w-full h-full text-green-500" viewBox="0 0 100 30" fill="none">
+                        <path d={activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} stroke="#10B981" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                        <path d={`${activeDashboard.whyChooseMetrics?.cplMiniPath || "M0 8 Q20 10,40 15 T80 22 T100 25"} L100 30 L0 30Z`} fill="url(#lg1)"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
             </div>

@@ -60,7 +60,9 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   home: Home,
   heartpulse: HeartPulse,
   luggage: Luggage,
-  graduationcap: GraduationCap
+  graduationcap: GraduationCap,
+  clock: Clock,
+  trendingup: TrendingUp
 };
 
 const defaultColorClasses = [
@@ -184,6 +186,13 @@ export default function AiAutomationServiceLayout({
   const activeFlowchart = flowchart || defaultFlowchart;
   const FlowchartHeaderIcon = iconMap[activeFlowchart.icon.toLowerCase()] || Cpu;
 
+  const heroBullets = [
+    { title: "Faster Response", desc: "Instant replies and automated follow-ups.", icon: "cpu" },
+    { title: "Less Manual Work", desc: "Automate repetitive tasks and save hours daily.", icon: "clock" },
+    { title: "Better Lead Tracking", desc: "Capture, score and track every lead in one place.", icon: "target" },
+    { title: "Scalable Workflows", desc: "Automation that grows with your business.", icon: "trendingup" }
+  ];
+
   const howItWorksSteps = [
     { step: "01", title: "Enquiry Received", desc: "Leads come in from website, ads, WhatsApp or forms.", icon: "messagecircle" },
     { step: "02", title: "AI Qualification", desc: "AI asks key questions and qualifies the lead.", icon: "cpu" },
@@ -206,7 +215,7 @@ export default function AiAutomationServiceLayout({
       <main className="flex-grow">
         
         {/* 1. HERO SECTION (WITH WATERMARK & FLOWCHART DISPLAY) */}
-        <section className="relative bg-white pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center min-h-[85vh]">
+        <section className="relative bg-white pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden flex flex-col justify-center min-h-[85vh]">
           {/* DESKTOP BACKGROUND WATERMARK */}
           <div className="absolute right-0 bottom-0 top-12 w-[45%] pointer-events-none select-none z-0 opacity-35 hidden lg:block">
             <Image
@@ -340,6 +349,30 @@ export default function AiAutomationServiceLayout({
               </div>
             </div>
           </div>
+
+          {/* HERO BOTTOM BULLETS (COMPACT ICON & TITLE) */}
+          <div className="max-w-7xl mx-auto px-6 w-full mt-12 pt-8 border-t border-[#1D3D9E]/5 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {heroBullets.map((bullet, idx) => {
+                const BulletIcon = iconMap[bullet.icon.toLowerCase()] || Clock;
+                return (
+                  <div key={idx} className="flex gap-4 items-center bg-slate-50 border border-slate-100 rounded-2xl p-4.5 hover:border-[#FF6B00]/20 transition-all duration-200">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1D3D9E]/5 text-[#1D3D9E] shrink-0">
+                      <BulletIcon size={18} className="stroke-[2]" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xs font-bold text-[#1D3D9E] tracking-tight leading-tight">
+                        {bullet.title}
+                      </h3>
+                      <p className="text-[10px] font-medium text-[#0F2C59]/60 mt-1 leading-snug">
+                        {bullet.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </section>
 
         {/* 2. SERVICES GRID SECTION */}
@@ -429,7 +462,7 @@ export default function AiAutomationServiceLayout({
           </div>
         </section>
 
-        {/* 4. WHY CHOOSE (CHECKLIST) */}
+        {/* 4. WHY CHOOSE (CHECKLIST & PERFORMANCE MIX) */}
         <section className="py-24 max-w-7xl mx-auto px-6">
           <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] p-8 sm:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -462,20 +495,49 @@ export default function AiAutomationServiceLayout({
                 </div>
               </div>
 
-              {/* Right Illustration */}
-              <div className="lg:col-span-5 flex justify-center">
-                <motion.div
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-72 h-72 select-none pointer-events-none"
-                >
-                  <Image
-                    src="/images/telescope_lookout_sketch.png"
-                    alt="Telescope Illustration"
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
+              {/* Right: Leads Captured Mini-Dashboard Card */}
+              <div className="lg:col-span-5 flex justify-center w-full">
+                <div className="bg-white border border-[#1D3D9E]/10 rounded-2xl p-6 shadow-md flex flex-col gap-4 font-sans max-w-sm w-full text-left">
+                  
+                  {/* Live Pulse Header */}
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <div className="flex items-center gap-1.5">
+                      <span className="flex h-2 w-2 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                      </span>
+                      <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Live Performance</span>
+                    </div>
+                    <span className="text-[9px] font-black text-[#FF6B00] bg-[#FF6B00]/10 px-2 py-0.5 rounded-md uppercase tracking-wide">
+                      Active Pulse
+                    </span>
+                  </div>
+
+                  {/* Leads Captured Segment */}
+                  <div className="flex justify-between items-center py-2">
+                    <div>
+                      <span className="text-[10px] font-bold text-slate-400 block tracking-wider uppercase">Leads Captured</span>
+                      <span className="text-2xl font-black text-[#1D3D9E] mt-1 block leading-none font-serif">2,548</span>
+                      <span className="text-[10px] font-bold text-green-500 block mt-1.5">+32.6% this month</span>
+                    </div>
+                    
+                    {/* SVG graph line */}
+                    <div className="w-28 h-12 shrink-0 relative flex items-center">
+                      <svg className="w-full h-full text-green-500 overflow-visible" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="leadsGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="currentColor" stopOpacity="0.25" />
+                            <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 35 Q 20 20, 40 25 T 80 10 T 100 5" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M0 35 Q 20 20, 40 25 T 80 10 T 100 5 L 100 40 L 0 40 Z" fill="url(#leadsGradient)" />
+                        <circle cx="100" cy="5" r="3" fill="currentColor" className="animate-pulse" />
+                      </svg>
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
             </div>
@@ -623,7 +685,7 @@ export default function AiAutomationServiceLayout({
                     Need Automation Flow?
                   </h4>
                   <p className="text-xs text-white/80 leading-snug mt-1">
-                    Let's design a custom system to capture andqualify leads instantly.
+                    Let's design a custom system to capture and qualify leads instantly.
                   </p>
                 </div>
 
