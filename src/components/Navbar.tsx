@@ -52,7 +52,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center select-none">
             <Image
-              src="/images/logo.jpeg?v=2"
+              src="/images/logo_v2.jpeg"
               alt="Navi Route Logo"
               width={170}
               height={54}
