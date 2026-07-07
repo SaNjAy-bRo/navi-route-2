@@ -52,11 +52,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center select-none">
             <Image
-              src="/images/logo.jpeg"
+              src="/images/logo.jpeg?v=2"
               alt="Navi Route Logo"
-              width={150}
-              height={48}
-              className="object-contain mix-blend-multiply w-[150px] h-[48px]"
+              width={170}
+              height={54}
+              className="object-contain mix-blend-multiply w-[170px] h-[54px]"
               priority
             />
           </Link>
