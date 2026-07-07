@@ -51,13 +51,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center select-none">
-            <Image
+            <img
               src="/images/logo_v2.jpeg"
               alt="Navi Route Logo"
-              width={170}
-              height={54}
               className="object-contain mix-blend-multiply w-[170px] h-[54px]"
-              priority
             />
           </Link>
 
