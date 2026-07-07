@@ -91,7 +91,7 @@ export default function Footer() {
 
       {/* 2. STAY IN THE LOOP BANNER */}
       <section className="py-12 max-w-7xl mx-auto px-6 w-full">
-        <div className="border border-[#0F2C59]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 bg-white relative overflow-hidden min-h-[240px] flex items-center justify-start">
+        <div className="border border-[#0F2C59]/10 rounded-[32px] pt-8 pb-32 px-8 sm:pt-12 sm:pb-36 sm:px-12 lg:p-16 bg-white relative overflow-hidden min-h-[300px] sm:min-h-[320px] lg:min-h-[240px] flex items-center justify-start">
           
           {/* Dashed trail & paper plane absolute overlay (visible on sm+) */}
           <div className="absolute inset-0 pointer-events-none select-none z-0 hidden sm:block">
@@ -153,14 +153,14 @@ export default function Footer() {
               </form>
             </div>
 
-            {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
-            <div className="block lg:hidden w-full h-[180px] relative select-none z-0 mt-4">
+            {/* Mobile version (Visible on <lg) - absolutely positioned at the bottom of the card, full width */}
+            <div className="absolute right-0 bottom-0 left-0 w-full h-[120px] sm:h-[150px] pointer-events-none select-none z-0 lg:hidden">
               <Image
                 src="/images/cta_lighthouse_ink.png"
                 alt="Lighthouse & Cottage Cliff Sketch (Mobile)"
                 fill
                 sizes="100vw"
-                className="object-contain object-center opacity-95"
+                className="object-cover object-bottom opacity-95"
               />
             </div>
             
