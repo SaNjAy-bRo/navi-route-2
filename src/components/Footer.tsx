@@ -2,20 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, PhoneCall } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
-// Inline brand SVGs since Lucide React removed them in newer releases
-const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+// Custom inline X/Twitter Icon since Lucide has generic icons
+const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
@@ -27,157 +19,261 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-navy-300 py-16 border-t border-navy-900 relative overflow-hidden">
-      {/* Decorative ambient background light */}
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[250px] bg-radial from-navy-800/20 to-transparent blur-3xl pointer-events-none" />
+    <div className="bg-white w-full flex flex-col">
+      
+      {/* 1. GET IN TOUCH SECTION */}
+      <section id="contact" className="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full border-t border-[#0F2C59]/5">
+        
+        {/* Left: Contact Info */}
+        <div className="space-y-8 text-left">
+          <div className="space-y-4">
+            <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
+              GET IN TOUCH
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F2C59] leading-tight">
+              We'd love to hear <br />
+              about your project.
+            </h2>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
-          {/* Brand Info */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 flex-shrink-0 bg-white/5 rounded-full p-1 border border-white/10">
-                <Image
-                  src="/images/logo_compass.png"
-                  alt="Navi Route Compass"
-                  fill
-                  sizes="40px"
-                  className="object-contain blend-multiply brightness-200"
-                />
+            <a 
+              href="mailto:hello@naviroute.studio" 
+              className="flex items-center gap-4 group text-[#0F2C59] hover:text-[#FF6B00] transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#0F2C59]/5 flex items-center justify-center text-[#0F2C59] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
+                <Mail className="w-5 h-5 stroke-[1.5]" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold tracking-wide text-white leading-none">
-                  NAVI <span className="text-orange-brand">ROUTE</span>
-                </span>
-                <span className="text-[8px] font-sans font-semibold tracking-[0.18em] text-navy-300 uppercase mt-0.5">
-                  DIGITAL GROWTH PARTNERS
-                </span>
+              <span className="font-semibold text-sm sm:text-base">hello@naviroute.studio</span>
+            </a>
+
+            <a 
+              href="tel:+15551234567" 
+              className="flex items-center gap-4 group text-[#0F2C59] hover:text-[#FF6B00] transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#0F2C59]/5 flex items-center justify-center text-[#0F2C59] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
+                <Phone className="w-5 h-5 stroke-[1.5]" />
               </div>
-            </Link>
+              <span className="font-semibold text-sm sm:text-base">+1 (555) 123-4567</span>
+            </a>
 
-            <p className="text-xs sm:text-sm text-navy-300/80 leading-relaxed">
-              We navigate the complex digital waters to drive direct bookings and measurable revenue growth for hospitality brands.
-            </p>
-
-            {/* Social Links */}
-            <div className="flex gap-4">
-              {[
-                { icon: FacebookIcon, href: "#" },
-                { icon: InstagramIcon, href: "#" },
-                { icon: LinkedinIcon, href: "#" },
-                { icon: TwitterIcon, href: "#" },
-              ].map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-orange-brand hover:text-white flex items-center justify-center transition-all duration-300"
-                  >
-                    <Icon className="w-4 h-4" />
-                  </Link>
-                );
-              })}
+            <div className="flex items-center gap-4 group text-[#0F2C59]">
+              <div className="w-12 h-12 rounded-xl bg-[#0F2C59]/5 flex items-center justify-center text-[#0F2C59]">
+                <MapPin className="w-5 h-5 stroke-[1.5]" />
+              </div>
+              <span className="font-semibold text-sm sm:text-base">Austin, TX & Worldwide</span>
             </div>
           </div>
+        </div>
 
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h4 className="font-serif text-sm font-extrabold tracking-wider text-white uppercase">
-              Quick Navigation
-            </h4>
-            <ul className="space-y-3 text-xs sm:text-sm">
-              {[
-                { name: "Our Services", href: "#services" },
-                { name: "Industries Served", href: "#industries" },
-                { name: "Success Stories", href: "#" },
-                { name: "About Navi Route", href: "#" },
-                { name: "Industry Insights (Blog)", href: "#" },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-white hover:underline transition-all"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Right: Message Bottle Sketch */}
+        <div className="flex justify-center">
+          <div className="relative w-full max-w-[520px] aspect-square">
+            <Image
+              src="/images/floating_message_bottle_v3.png"
+              alt="Floating Message Bottle Sketch"
+              fill
+              className="object-contain"
+            />
           </div>
+        </div>
+      </section>
 
-          {/* Contact Details */}
-          <div className="space-y-6">
-            <h4 className="font-serif text-sm font-extrabold tracking-wider text-white uppercase">
-              Get In Touch
-            </h4>
-            <ul className="space-y-4 text-xs sm:text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-orange-brand flex-shrink-0 mt-0.5" />
-                <span>
-                  123 Marine Parade, Suite 400<br />
-                  Harbor District, CA 90210
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <PhoneCall className="w-5 h-5 text-orange-brand flex-shrink-0" />
-                <Link href="tel:+15551234567" className="hover:text-white transition-colors">
-                  +1 (555) 123-4567
-                </Link>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-orange-brand flex-shrink-0" />
-                <Link href="mailto:hello@naviroute.com" className="hover:text-white transition-colors">
-                  hello@naviroute.com
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter / Booking Inquiry */}
-          <div className="space-y-6">
-            <h4 className="font-serif text-sm font-extrabold tracking-wider text-white uppercase">
-              Newsletter
-            </h4>
-            <p className="text-xs sm:text-sm text-navy-300/80">
-              Receive direct booking tips and hospitality marketing guides.
-            </p>
-            <form className="flex flex-col gap-2.5" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-xs text-white placeholder-navy-300/50 focus:outline-none focus:border-orange-brand transition-colors"
-                required
+      {/* 2. STAY IN THE LOOP BANNER */}
+      <section className="py-12 max-w-7xl mx-auto px-6 w-full">
+        <div className="border border-[#0F2C59]/10 rounded-[32px] p-8 sm:p-12 lg:p-16 bg-white relative overflow-hidden min-h-[240px] flex items-center justify-start">
+          
+          {/* Dashed trail & paper plane absolute overlay (visible on sm+) */}
+          <div className="absolute inset-0 pointer-events-none select-none z-0 hidden sm:block">
+            <svg className="w-full h-full text-[#FF6B00]" viewBox="0 0 1000 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M120,60 C240,20 340,10 440,70 C520,110 560,130 600,100 C640,70 630,30 680,40" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
               />
-              <button
-                type="submit"
-                className="w-full bg-orange-brand hover:bg-orange-brand-hover text-white text-xs font-bold tracking-widest py-2.5 rounded-lg transition-colors"
-              >
-                SUBSCRIBE
-              </button>
-            </form>
+              <g transform="translate(680, 36) rotate(-15)">
+                <svg className="w-8 h-8 text-[#0F2C59]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </g>
+            </svg>
           </div>
 
-        </div>
+          {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
+          <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] pointer-events-none select-none z-0">
+            <Image
+              src="/images/cta_lighthouse_final.png"
+              alt="Lighthouse & Cottage Cliff Sketch (Desktop)"
+              fill
+              sizes="40vw"
+              className="object-contain object-right-bottom opacity-95"
+              priority
+            />
+          </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-navy-300/55">
-          <p>© {new Date().getFullYear()} Navi Route. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-white">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white">Terms of Service</Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 w-full">
+            
+            {/* Left Side: Typography & Newsletter Form stacked */}
+            <div className="space-y-6 lg:col-span-7 text-left w-full relative z-10">
+              <div className="space-y-2">
+                <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#0F2C59] leading-tight">
+                  Stay in the loop
+                </h3>
+                <p className="text-[#0F2C59]/75 text-sm sm:text-base">
+                  Tips, ideas, and insights to help your business grow.
+                </p>
+              </div>
+              
+              <form className="flex flex-col sm:flex-row gap-3 w-full max-w-md relative z-10" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full bg-[#FAF6F0] border border-[#0F2C59]/10 rounded-xl px-5 py-3 text-sm text-[#0F2C59] placeholder-[#0F2C59]/40 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-[#FF6B00] hover:bg-[#E05E00] text-white text-sm font-bold px-8 py-3 rounded-xl transition-all duration-200 cursor-pointer flex-shrink-0"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+
+            {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
+            <div className="block lg:hidden w-full h-[180px] relative select-none z-0 mt-4">
+              <Image
+                src="/images/cta_lighthouse_final.png"
+                alt="Lighthouse & Cottage Cliff Sketch (Mobile)"
+                fill
+                sizes="100vw"
+                className="object-contain object-center opacity-95"
+              />
+            </div>
+            
           </div>
         </div>
-      </div>
-    </footer>
+      </section>
+
+      {/* 3. DEEP BLUE FOOTER */}
+      <footer className="bg-[#0F2C59] text-white/80 py-16 w-full border-t border-[#0F2C59]/10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 text-left">
+            
+            {/* Logo Column */}
+            <div className="space-y-6 lg:col-span-2">
+              <Link href="/" className="flex items-center gap-3 group">
+                <div className="relative w-9 h-9 flex-shrink-0 flex items-center justify-center">
+                  <svg className="w-9 h-9 text-[#FF6B00] group-hover:rotate-45 transition-transform duration-700 ease-out" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="1.5" strokeDasharray="3 3" />
+                    <circle cx="50" cy="50" r="35" stroke="white" strokeWidth="2" />
+                    <polygon points="50,15 45,50 50,45" fill="#FF6B00" stroke="white" strokeWidth="1.5" />
+                    <polygon points="50,15 55,50 50,45" fill="#E05E00" stroke="white" strokeWidth="1.5" />
+                    <polygon points="50,85 45,50 50,55" fill="white" stroke="white" strokeWidth="1.5" />
+                    <polygon points="50,85 55,50 50,55" fill="#DCE6F0" stroke="white" strokeWidth="1.5" />
+                  </svg>
+                </div>
+                <div className="flex flex-col -space-y-0.5">
+                  <span className="font-sans text-base font-black tracking-widest text-white leading-none">
+                    NAVI
+                  </span>
+                  <span className="font-sans text-base font-black tracking-widest text-white leading-none">
+                    ROUTE
+                  </span>
+                </div>
+              </Link>
+
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-white">Navigate today.</p>
+                <p className="text-sm font-medium text-[#FF6B00]">Grow tomorrow.</p>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex gap-4">
+                {[
+                  { icon: TwitterIcon, href: "#" },
+                  { icon: LinkedinIcon, href: "#" },
+                  { icon: InstagramIcon, href: "#" },
+                ].map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      key={index}
+                      href={social.href}
+                      className="w-8 h-8 rounded-full border border-white/20 hover:border-[#FF6B00] hover:text-white flex items-center justify-center transition-all duration-300"
+                    >
+                      <Icon className="w-4 h-4" />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Services Links */}
+            <div className="space-y-6">
+              <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
+                Services
+              </h4>
+              <ul className="space-y-3 text-xs sm:text-sm">
+                <li><Link href="#services" className="hover:text-white transition-colors">Website Development</Link></li>
+                <li><Link href="#services" className="hover:text-white transition-colors">App Development</Link></li>
+                <li><Link href="#services" className="hover:text-white transition-colors">AI Automation</Link></li>
+                <li><Link href="#services" className="hover:text-white transition-colors">Digital Marketing</Link></li>
+              </ul>
+            </div>
+
+            {/* Company Links */}
+            <div className="space-y-6">
+              <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
+                Company
+              </h4>
+              <ul className="space-y-3 text-xs sm:text-sm">
+                <li><Link href="#about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="#work" className="hover:text-white transition-colors">Our Work</Link></li>
+                <li><Link href="#insights" className="hover:text-white transition-colors">Insights</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
+              </ul>
+            </div>
+
+            {/* Resources Links */}
+            <div className="space-y-6">
+              <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
+                Resources
+              </h4>
+              <ul className="space-y-3 text-xs sm:text-sm">
+                <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Guides</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Case Studies</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">FAQ</Link></li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/50">
+            <p>© 2025 Navi Route Studio. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
   );
 }

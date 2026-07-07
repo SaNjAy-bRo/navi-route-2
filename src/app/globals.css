@@ -2,7 +2,7 @@
 
 @theme {
   --color-sand-50: #FDFBF8;
-  --color-sand-100: #FAF6F0;
+  --color-sand-100: #f5f1e4;
   --color-sand-200: #F4EBE1;
   --color-sand-300: #E8DCCB;
   
@@ -14,8 +14,8 @@
   --color-navy-900: #0A1E3B;
   --color-navy-950: #061326;
   
-  --color-orange-brand: #E05A2B;
-  --color-orange-brand-hover: #C54B20;
+  --color-orange-brand: #FF6B00;
+  --color-orange-brand-hover: #E05E00;
   
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-script: var(--font-caveat), cursive;
@@ -49,14 +49,24 @@
 }
 
 :root {
-  --background: #FAF6F0;
-  --foreground: #0A1E3B;
+  --background: #f5f1e4;
+  --foreground: #0F2C59;
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(circle at 75% 45%, #f5f1e4 0%, #f4f1e4 50%, #f3f0e5 100%);
   color: var(--foreground);
   overflow-x: hidden;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
 }
 
 /* Custom scrollbar styling */
@@ -64,7 +74,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF6F0;
+  background: #f5f1e4;
 }
 ::-webkit-scrollbar-thumb {
   background: #C8B9A6;
@@ -129,4 +139,10 @@ body {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
   pointer-events: none;
+}
+
+/* Vignette mask that fades the top, bottom, and left sides of the video into the background */
+.video-fade-mask {
+  -webkit-mask-image: radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 95%);
+  mask-image: radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 95%);
 }
