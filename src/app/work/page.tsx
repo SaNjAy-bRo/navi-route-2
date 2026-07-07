@@ -851,7 +851,7 @@ export default function WorkPage() {
                       )}
 
                       {/* Outward Buttons Container */}
-                      <div className="flex items-center gap-3 w-full pt-4 border-t border-[#1D3D9E]/5">
+                      <div className="flex items-center justify-between w-full pt-4 border-t border-[#1D3D9E]/5">
                         <button
                           type="button"
                           className="flex-grow flex items-center justify-center gap-2 bg-[#1D3D9E]/5 text-[#1D3D9E] group-hover:bg-[#1D3D9E] group-hover:text-white border border-transparent text-xs font-bold py-2.5 px-4 rounded-xl transition-all duration-300"
@@ -859,6 +859,28 @@ export default function WorkPage() {
                           <span>View Growth Logs</span>
                           <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </button>
+                        <div className="flex items-center gap-3 shrink-0 ml-3">
+                          <a
+                            href={port.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[11px] font-bold text-[#FF6B00] hover:text-[#E05E00] flex items-center gap-1 hover:underline cursor-pointer"
+                          >
+                            <span>Visit Site</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                          <a
+                            href={port.instagram || `https://www.instagram.com/${port.name.toLowerCase().replace(/[^a-z0-9]/g, "")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[#0F2C59]/60 hover:text-[#FF6B00] transition-colors cursor-pointer"
+                            title="Instagram Log"
+                          >
+                            <InstagramIcon className="w-4 h-4" />
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -924,7 +946,7 @@ export default function WorkPage() {
       {/* 5. INTERACTIVE PERFORMANCE LOG MODAL */}
       {selectedPort && (
         <div className="fixed inset-0 z-50 bg-[#0F2C59]/40 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative overflow-y-auto max-h-[90vh] text-left space-y-6">
+          <div className="bg-white border border-[#1D3D9E]/10 rounded-[32px] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative overflow-y-auto max-h-[90vh] text-left space-y-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
             {/* Header / Close button */}
             <div className="flex justify-between items-start">
