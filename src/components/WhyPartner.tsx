@@ -198,7 +198,7 @@ export default function WhyPartner() {
 
       {/* 3. FINAL CALL-TO-ACTION (CTA) SECTION */}
       <section className="py-12 max-w-7xl mx-auto px-6">
-        <div className="bg-[#0F2C59] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[220px] lg:min-h-[260px]">
+        <div className="bg-[#1D3D9E] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[220px] lg:min-h-[260px]">
           
           {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
           <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none select-none z-0">

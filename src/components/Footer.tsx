@@ -169,7 +169,7 @@ export default function Footer() {
       </section>
 
       {/* 3. DEEP BLUE FOOTER */}
-      <footer className="bg-[#0F2C59] text-white/80 py-16 w-full border-t border-[#0F2C59]/10">
+      <footer className="bg-[#1D3D9E] text-white/80 py-16 w-full border-t border-[#1D3D9E]/10">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 text-left">
             

@@ -44,8 +44,8 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out ${
       isScrolled 
-        ? "bg-[#0F2C59] lg:bg-sand-100/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#0F2C59]/5 shadow-sm py-3" 
-        : "bg-[#0F2C59] lg:bg-transparent border-b border-[#FF6B00]/10 lg:border-transparent py-5"
+        ? "bg-[#1D3D9E] lg:bg-sand-100/95 lg:backdrop-blur-md border-b border-[#FF6B00]/10 lg:border-[#0F2C59]/5 shadow-sm py-3" 
+        : "bg-[#1D3D9E] lg:bg-transparent border-b border-[#FF6B00]/10 lg:border-transparent py-5"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`transition-all duration-300 ${
@@ -151,7 +151,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-[#0F2C59] border-b border-[#FF6B00]/10 overflow-hidden"
+            className="lg:hidden bg-[#1D3D9E] border-b border-[#FF6B00]/10 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {navLinks.map((link) => (
