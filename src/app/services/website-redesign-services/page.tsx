@@ -1,74 +1,69 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Laptop, 
-  Code2, 
-  ShoppingCart, 
-  Layout, 
-  RefreshCw, 
-  Wrench, 
+  ArrowRight, 
   Check, 
-  ArrowRight,
-  Monitor,
-  Users,
-  Award,
-  Network
+  RefreshCw, 
+  Code2, 
+  Layout, 
+  Search, 
+  Smartphone, 
+  Rocket 
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.967C16.29 1.97 13.82 1.05 12.008 1.05c-5.442 0-9.87 4.372-9.874 9.802-.002 1.778.486 3.514 1.411 5.097l-.924 3.376 3.471-.912-.03-.009zm11.367-7.854c-.3-.15-1.77-.875-2.046-.975-.276-.102-.476-.15-.676.15-.2.3-.775.975-.95 1.174-.175.2-.35.226-.65.076-.3-.15-1.267-.467-2.413-1.485-.892-.793-1.493-1.773-1.668-2.073-.175-.3-.019-.461.13-.61.135-.133.3-.349.45-.523.15-.174.2-.3.3-.5.1-.2.05-.375-.025-.524-.075-.15-.676-1.624-.925-2.225-.244-.589-.493-.51-.676-.519-.174-.009-.374-.01-.574-.01-.2 0-.526.075-.801.374-.275.3-1.05 1.024-1.05 2.5 0 1.475 1.075 2.9 1.225 3.1.15.2 2.11 3.224 5.116 4.524.715.31 1.273.496 1.71.635.717.227 1.37.195 1.885.118.574-.086 1.77-.724 2.02-1.385.25-.66.25-1.225.175-1.385-.075-.16-.275-.26-.575-.41z" />
+    <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.118-2.91-6.997-1.878-1.879-4.361-2.914-7.01-2.915-5.442 0-9.87 4.414-9.874 9.86-.002 1.798.486 3.55 1.414 5.094l-.949 3.469 3.555-.933zm12.39-7.105c-.34-.17-2.01-.99-2.32-1.1-31-.11-.53-.17-.76-.51-.23-.34-.9-.9-1.12-1.32-.22-.42 0-.78-.08-.95-.08-.17-.76-1.84-1.05-2.51-.27-.67-.56-.58-.76-.59-.2-.01-.43-.01-.67-.01-.24 0-.63.09-.96.44-.33.35-1.27 1.24-1.27 3.03s1.3 3.52 1.48 3.76c.18.24 2.55 3.9 6.19 5.47 2.16.93 3.32 1.23 4.54 1.15 1.09-.08 2.01-.84 2.44-1.63.43-.79.43-1.47.3-1.62-.13-.15-.47-.25-.81-.42z"/>
     </svg>
   );
 }
 
 const businessServices = [
   {
-    icon: Laptop,
-    title: "Business Website Development",
-    description: "Professional corporate and brand websites that establish instant trust and authority online.",
+    icon: RefreshCw,
+    title: "Complete Website Redesign",
+    description: "Full visual and structural overhaul of your existing website for modern standards.",
   },
   {
     icon: Code2,
-    title: "React / Next.js Development",
-    description: "Bespoke high-performance web applications built using cutting-edge React and Next.js frameworks.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Ecommerce Website Development",
-    description: "Scalable digital shops designed with AWS database features, smooth product management, and secure payment flows.",
+    title: "React/Next.js Migration",
+    description: "Migrate your WordPress or legacy site to a fast, modern React/Next.js platform.",
   },
   {
     icon: Layout,
-    title: "Landing Page Development",
-    description: "Conversion-optimized landing pages designed for PPC, Google Ads, and Meta Ads campaign traffic.",
+    title: "UI/UX Improvement",
+    description: "Improve user experience with better navigation, clearer layouts, and modern design patterns.",
   },
   {
-    icon: RefreshCw,
-    title: "Website Redesign",
-    description: "Modern updates for legacy websites to improve load speed, visual appeal, and sales conversions.",
+    icon: Search,
+    title: "SEO-Focused Redesign",
+    description: "Rebuild your site structure for better search engine visibility and organic traffic.",
   },
   {
-    icon: Wrench,
-    title: "Website Maintenance",
-    description: "Ongoing updates, hosting management, technical support, and backup configurations.",
+    icon: Smartphone,
+    title: "Mobile Optimization",
+    description: "Make your website fully responsive and optimized for mobile-first browsing.",
+  },
+  {
+    icon: Rocket,
+    title: "Speed Optimization",
+    description: "Improve Core Web Vitals, reduce load times, and optimize images and code for faster performance.",
   }
 ];
 
 const whyChoosePoints = [
-  "Conversion-focused layouts engineered to turn website visitors into active leads.",
-  "Clean, SEO-optimized structure and code that ranks higher on organic search results.",
-  "Blazing-fast loading speeds under 1.5s for maximum user retention and better search signals.",
-  "Responsive, mobile-first design that renders flawlessly on every smartphone and tablet.",
-  "Integrated tracking analytics, contact forms, CRM sync, and marketing tools.",
-  "Reliable post-launch maintenance, secure backups, and direct tech support."
+  "Modern, clean designs that reflect your brand's current positioning and values.",
+  "Careful SEO migration to preserve rankings while improving site structure.",
+  "Faster loading speeds through optimized code, images, and hosting configuration.",
+  "Mobile-first responsive design for consistent experience across all devices.",
+  "Improved conversion paths with clear CTAs, better navigation, and trust signals."
 ];
 
 const processSteps = [
@@ -191,24 +186,24 @@ const businessGoals = [
 
 const faqs = [
   {
-    question: "How many pages will my website have?",
-    answer: "It depends on your requirement. Most business websites range from 5 to 15 pages.",
+    question: "When should I redesign my website?",
+    answer: "If your website is slow, looks outdated, doesn't work well on mobile, or isn't converting visitors into leads, it's time for a redesign.",
   },
   {
-    question: "Will my website be mobile-friendly?",
-    answer: "Yes. All our websites are fully responsive and optimized for mobile devices.",
+    question: "Will I lose my SEO rankings during a redesign?",
+    answer: "No. We carefully plan URL structures, redirects, and on-page SEO to preserve and improve your existing search rankings.",
   },
   {
-    question: "Can you redesign my existing website?",
-    answer: "Yes. We can redesign and improve your current website to boost load speed and conversions.",
+    question: "How long does a website redesign take?",
+    answer: "Most website redesigns take 2–4 weeks depending on the scope, content, and complexity of the project.",
   },
   {
-    question: "Do you provide hosting?",
-    answer: "We can guide you or help set up hosting based on your needs, including domain linking and SSL setups.",
+    question: "Can you keep my existing content?",
+    answer: "Yes. We can retain your existing content while improving the design, layout, speed, and user experience.",
   },
 ];
 
-export default function BusinessWebsiteDevelopmentPage() {
+export default function WebsiteRedesignServicesPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (
@@ -245,24 +240,24 @@ export default function BusinessWebsiteDevelopmentPage() {
           <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 space-y-6 text-left">
               <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
-                BUSINESS WEBSITE DEVELOPMENT
+                Website Redesign
               </span>
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1D3D9E] leading-tight max-w-3xl">
-                High-Performance Websites That Build Trust &amp; Drive Growth
+                Website Redesign Services for Better Brand Presence
               </h1>
               <p className="text-[#0F2C59]/80 text-base sm:text-lg leading-relaxed max-w-xl">
-                We design and develop professional business websites that are fast, secure, SEO-friendly, and built to convert visitors into customers.
+                Redesign your outdated website into a faster, cleaner and more conversion-focused experience for modern customers.
               </p>
               
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                 <Link
-                  href="/contact?service=Business%20Website%20Development"
+                  href="/contact?service=Website%20Redesign"
                   className="inline-flex justify-center items-center bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
                 >
                   Discuss Your Project
                 </Link>
                 <a
-                  href="https://wa.me/919986389444?text=Hi%2C%20I'm%20interested%20in%20your%20Business%20Website%20Development%20service."
+                  href="https://wa.me/919986389444?text=Hi%2C%20I'm%20interested%20in%20your%20Website%20Redesign%20service."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 text-[#0F2C59] text-xs sm:text-sm font-bold px-8 py-4 rounded-xl shadow-sm transition-all duration-200"
@@ -310,7 +305,7 @@ export default function BusinessWebsiteDevelopmentPage() {
                   </div>
                   <div className="pt-6">
                     <Link
-                      href="/contact?service=Business%20Website%20Development"
+                      href="/contact?service=Website%20Redesign"
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1D3D9E] hover:text-[#FF6B00] transition-colors"
                     >
                       <span>Get a Quote</span>
@@ -451,7 +446,7 @@ export default function BusinessWebsiteDevelopmentPage() {
                   WHY PARTNER WITH US
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#1D3D9E]">
-                  Engineered for Performance &amp; Conversion
+                  Modern &amp; Performance-Driven Redesigns
                 </h2>
                 <p className="text-[#0F2C59]/80 text-xs sm:text-sm leading-relaxed max-w-xl">
                   We don't just build code; we layout websites meant to attract, educate, and convert your ideal business clientele.
@@ -480,8 +475,8 @@ export default function BusinessWebsiteDevelopmentPage() {
                 className="relative w-72 h-72 select-none pointer-events-none"
               >
                 <Image
-                  src="/images/ship_wheel_sketch.png"
-                  alt="Ship Wheel Illustration"
+                  src="/images/hand_holding_compass_v4.png"
+                  alt="Compass Illustration"
                   fill
                   className="object-contain"
                 />
@@ -537,11 +532,11 @@ export default function BusinessWebsiteDevelopmentPage() {
 
             {/* Right CTA card */}
             <div className="lg:col-span-6 bg-[#1D3D9E] rounded-[32px] text-white p-8 sm:p-12 relative overflow-hidden flex flex-col justify-between min-h-[360px] shadow-md">
-              {/* Seaside town sketch overlay */}
+              {/* background overlay */}
               <div className="absolute right-0 bottom-0 w-[85%] h-[55%] pointer-events-none select-none z-0">
                 <Image
-                  src="/images/telescope_lookout_sketch.png"
-                  alt="Telescope Lookout Background"
+                  src="/images/floating_message_bottle_v4.png"
+                  alt="Message Bottle Background"
                   fill
                   className="object-contain object-right-bottom opacity-90"
                 />
@@ -549,7 +544,7 @@ export default function BusinessWebsiteDevelopmentPage() {
 
               <div className="space-y-4 relative z-10 text-left max-w-md">
                 <h3 className="font-serif text-2xl sm:text-3xl font-extrabold leading-tight">
-                  Ready to Build or Redesign Your Website?
+                  Ready to Rebuild Your Outdated Website?
                 </h3>
                 <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
                   Let's design a website that reflects your brand identity, loads fast, and converts traffic.
@@ -558,14 +553,14 @@ export default function BusinessWebsiteDevelopmentPage() {
 
               <div className="flex flex-col sm:flex-row gap-3 pt-8 relative z-10 w-full sm:max-w-md">
                 <Link
-                  href="/contact?service=Business%20Website%20Development"
+                  href="/contact?service=Website%20Redesign"
                   className="inline-flex justify-center items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-6 py-3.5 rounded-xl shadow-md transition-all duration-200 text-center flex-grow"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="https://wa.me/919986389444?text=Hi%2C%20I'm%20interested%20in%20your%20Business%20Website%20Development%20service."
+                  href="https://wa.me/919986389444?text=Hi%2C%20I'm%20interested%20in%20your%20Website%20Redesign%20service."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center gap-2 bg-white hover:bg-slate-50 text-[#0F2C59] text-xs sm:text-sm font-bold px-6 py-3.5 rounded-xl shadow-sm transition-all duration-200 text-center flex-grow"

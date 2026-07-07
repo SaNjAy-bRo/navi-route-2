@@ -21,11 +21,11 @@ const megaMenuData = [
     iconColor: "text-[#1D3D9E] bg-[#1D3D9E]/5",
     items: [
       { name: "Business Website Development", href: "/services/business-website-development", active: true },
-      { name: "React / Next.js Website Development", href: "#" },
-      { name: "Ecommerce Website Development", href: "#" },
-      { name: "Landing Page Development", href: "#" },
-      { name: "Website Redesign", href: "#" },
-      { name: "Website Maintenance", href: "#" },
+      { name: "React / Next.js Website Development", href: "/services/react-nextjs-website-development", active: true },
+      { name: "Ecommerce Website Development", href: "/services/ecommerce-website-development", active: true },
+      { name: "Landing Page Development", href: "/services/landing-page-development", active: true },
+      { name: "Website Redesign", href: "/services/website-redesign-services", active: true },
+      { name: "Website Maintenance", href: "/services/website-maintenance-services", active: true },
     ]
   },
   {
@@ -183,7 +183,7 @@ export default function Navbar() {
                                       <Link
                                         href={item.href}
                                         className={`text-xs font-semibold hover:text-[#FF6B00] transition-colors block leading-relaxed relative ${
-                                          item.active 
+                                          ('active' in item && item.active) 
                                             ? "text-[#FF6B00] pl-3 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#FF6B00]" 
                                             : "text-[#0F2C59]/75"
                                         }`}
@@ -318,7 +318,7 @@ export default function Navbar() {
                                             href={item.href}
                                             onClick={() => setIsOpen(false)}
                                             className={`text-xs block py-1 hover:text-orange-brand transition-colors ${
-                                              item.active ? "text-[#FF6B00] font-bold" : "text-white/80"
+                                              ('active' in item && item.active) ? "text-[#FF6B00] font-bold" : "text-white/80"
                                             }`}
                                           >
                                             {item.name}
