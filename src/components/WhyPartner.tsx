@@ -215,14 +215,14 @@ export default function WhyPartner() {
             />
           </div>
 
-          {/* Mobile version (Visible on <lg) - absolutely positioned in the bottom-right corner of the card */}
-          <div className="absolute right-0 bottom-0 left-0 w-full h-[130px] sm:h-[160px] pointer-events-none select-none z-0 lg:hidden">
+          {/* Mobile version (Visible on <lg) - absolutely positioned in the bottom-right corner of the card with 850px width */}
+          <div className="absolute right-0 bottom-0 w-[850px] h-[240px] pointer-events-none select-none z-0 lg:hidden">
             <Image
               src="/images/cta_town_mobile_final.png"
               alt="Seaside Coastal Town & Sailboat Sketch (Mobile)"
               fill
-              sizes="100vw"
-              className="object-cover object-bottom opacity-95"
+              sizes="850px"
+              className="object-contain object-right-bottom opacity-95"
             />
           </div>
 
