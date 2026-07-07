@@ -89,7 +89,7 @@ export default function Hero() {
       </div>
 
       {/* MOBILE BACKGROUND ARTWORK - Larger and highly visible background watermark under the text and buttons */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none lg:hidden opacity-45">
+      <div className="absolute inset-0 z-0 top-60 select-none pointer-events-none lg:hidden opacity-45">
         <Image
           src="/images/hero_lighthouse_ink.png"
           alt="Lighthouse Cliff Background (Mobile)"

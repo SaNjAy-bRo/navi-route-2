@@ -59,8 +59,8 @@ export default function Navbar() {
               href="/" 
               className="flex items-center justify-center select-none transition-all duration-300"
               style={{
-                width: isScrolled ? '56px' : '76px',
-                height: isScrolled ? '56px' : '76px'
+                width: '100px',
+                height: '100px'
               }}
             >
               <img
@@ -116,8 +116,8 @@ export default function Navbar() {
                 href="/" 
                 className="flex items-center justify-center select-none transition-all duration-300"
                 style={{
-                  width: isScrolled ? '50px' : '64px',
-                  height: isScrolled ? '50px' : '64px'
+                  width: '100px',
+                  height: '100px'
                 }}
               >
                 <img
