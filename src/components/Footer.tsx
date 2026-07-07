@@ -159,10 +159,10 @@ export default function Footer() {
                 Services
               </h4>
               <ul className="space-y-3 text-xs sm:text-sm">
-                <li><Link href="#services" className="hover:text-white transition-colors">Website Development</Link></li>
-                <li><Link href="#services" className="hover:text-white transition-colors">App Development</Link></li>
-                <li><Link href="#services" className="hover:text-white transition-colors">AI Automation</Link></li>
-                <li><Link href="#services" className="hover:text-white transition-colors">Digital Marketing</Link></li>
+                <li><Link href="/#services" className="hover:text-white transition-colors">Website Development</Link></li>
+                <li><Link href="/#services" className="hover:text-white transition-colors">App Development</Link></li>
+                <li><Link href="/#services" className="hover:text-white transition-colors">AI Automation</Link></li>
+                <li><Link href="/#services" className="hover:text-white transition-colors">Digital Marketing</Link></li>
               </ul>
             </div>
 
@@ -172,9 +172,9 @@ export default function Footer() {
                 Company
               </h4>
               <ul className="space-y-3 text-xs sm:text-sm">
-                <li><Link href="#about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="#work" className="hover:text-white transition-colors">Our Work</Link></li>
-                <li><Link href="#insights" className="hover:text-white transition-colors">Insights</Link></li>
+                <li><Link href="/#about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/#work" className="hover:text-white transition-colors">Our Work</Link></li>
+                <li><Link href="/#insights" className="hover:text-white transition-colors">Insights</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
               </ul>
             </div>

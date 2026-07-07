@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import CoreValues from "@/components/CoreValues";
 import Services from "@/components/Services";
 import WhyPartner from "@/components/WhyPartner";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         <Services />
         <CoreValues />
         <WhyPartner />
-        <Contact />
       </main>
       <Footer />
     </div>

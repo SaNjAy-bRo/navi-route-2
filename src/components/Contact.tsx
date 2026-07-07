@@ -13,16 +13,8 @@ const projectTypes = [
   "Consulting",
 ];
 
-const budgetRanges = [
-  "Under $10k",
-  "$10k - $25k",
-  "$25k - $50k",
-  "$50k+",
-];
-
 export default function Contact() {
   const [selectedType, setSelectedType] = useState<string>("Website Development");
-  const [selectedBudget, setSelectedBudget] = useState<string>("$10k - $25k");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -44,55 +36,74 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 max-w-7xl mx-auto px-6 w-full border-t border-[#1D3D9E]/5 relative">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10 w-full">
-        
-        {/* Left Side: Vibe, Contact Details & Floating Artwork */}
-        <div className="lg:col-span-5 space-y-10 text-left flex flex-col justify-between h-full">
-          <div className="space-y-6">
-            <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
-              GET IN TOUCH
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1D3D9E] leading-tight">
-              Ready to chart <br />
-              a new course?
-            </h2>
-            <p className="text-[#0F2C59]/80 text-sm sm:text-base leading-relaxed max-w-md">
-              Tell us where you want to go. We'll help you navigate the strategy, build the technology, and scale your brand to reach new horizons.
-            </p>
-          </div>
+    <section id="contact-page" className="max-w-7xl mx-auto px-6 w-full relative">
+      
+      {/* 1. Header Intro Block */}
+      <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span className="text-[#FF6B00] uppercase tracking-wider text-xs font-bold block">
+          GET IN TOUCH
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl font-extrabold text-[#1D3D9E] leading-tight">
+          Let's Chart a New Course.
+        </h1>
+        <p className="text-[#0F2C59]/80 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          Tell us where you want to go. We'll help you navigate the strategy, build the technology, and scale your brand to reach new horizons.
+        </p>
+      </div>
 
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch relative z-10 w-full">
+        
+        {/* Left Side: Modern Card-Style Contact Details & Floating Artwork */}
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+          
           <div className="space-y-4">
+            
+            {/* Email Card */}
             <a 
               href="mailto:hello@naviroute.studio" 
-              className="flex items-center gap-4 group text-[#1D3D9E] hover:text-[#FF6B00] transition-colors"
+              className="flex items-center gap-4 p-5 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 hover:bg-[#1D3D9E]/10 hover:border-[#FF6B00]/30 transition-all duration-300 group text-left w-full"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 shadow-sm flex-shrink-0">
                 <Mail className="w-5 h-5 stroke-[1.5]" />
               </div>
-              <span className="font-semibold text-xs sm:text-sm">hello@naviroute.studio</span>
+              <div className="space-y-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F2C59]/50">Email Us</p>
+                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">hello@naviroute.studio</p>
+                <p className="text-[11px] text-[#0F2C59]/60">Typical response time: &lt; 24h</p>
+              </div>
             </a>
 
+            {/* Phone Card */}
             <a 
               href="tel:+15551234567" 
-              className="flex items-center gap-4 group text-[#1D3D9E] hover:text-[#FF6B00] transition-colors"
+              className="flex items-center gap-4 p-5 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 hover:bg-[#1D3D9E]/10 hover:border-[#FF6B00]/30 transition-all duration-300 group text-left w-full"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 shadow-sm flex-shrink-0">
                 <Phone className="w-5 h-5 stroke-[1.5]" />
               </div>
-              <span className="font-semibold text-xs sm:text-sm">+1 (555) 123-4567</span>
+              <div className="space-y-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F2C59]/50">Call Us</p>
+                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">+1 (555) 123-4567</p>
+                <p className="text-[11px] text-[#0F2C59]/60">Mon - Fri, 9am - 6pm EST</p>
+              </div>
             </a>
 
-            <div className="flex items-center gap-4 text-[#1D3D9E]">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1D3D9E]/5 flex items-center justify-center text-[#1D3D9E]">
+            {/* Location Card */}
+            <div className="flex items-center gap-4 p-5 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 text-left w-full">
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#1D3D9E] shadow-sm flex-shrink-0">
                 <MapPin className="w-5 h-5 stroke-[1.5]" />
               </div>
-              <span className="font-semibold text-xs sm:text-sm">Austin, TX & Worldwide</span>
+              <div className="space-y-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F2C59]/50">HQ Location</p>
+                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">Austin, TX &amp; Worldwide</p>
+                <p className="text-[11px] text-[#0F2C59]/60">Available for remote engagements</p>
+              </div>
             </div>
+
           </div>
 
           {/* Floating Message Bottle Illustration */}
-          <div className="hidden lg:block pt-8">
+          <div className="hidden lg:flex justify-center pt-4">
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -109,8 +120,8 @@ export default function Contact() {
         </div>
 
         {/* Right Side: Interactive Card Form */}
-        <div className="lg:col-span-7 w-full">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#1D3D9E]/10 shadow-sm relative overflow-hidden">
+        <div className="lg:col-span-7 w-full flex">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#1D3D9E]/10 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden w-full flex flex-col justify-center">
             
             {isSubmitted ? (
               <motion.div 
@@ -137,7 +148,7 @@ export default function Contact() {
                 
                 {/* 1. Project Type Selector Chips */}
                 <div className="space-y-3">
-                  <label className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0F2C59]/60 block text-left">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/60 block text-left">
                     What can we help you build?
                   </label>
                   <div className="flex flex-wrap gap-2 justify-start">
@@ -146,7 +157,7 @@ export default function Contact() {
                         key={type}
                         type="button"
                         onClick={() => setSelectedType(type)}
-                        className={`text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-200 ${
+                        className={`text-xs font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 ${
                           selectedType === type
                             ? "bg-[#FF6B00] text-white shadow-sm shadow-[#FF6B00]/10"
                             : "bg-[#1D3D9E]/5 text-[#1D3D9E] hover:bg-[#1D3D9E]/10"
@@ -207,35 +218,14 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* 3. Budget Range Selector */}
-                <div className="space-y-3">
-                  <label className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0F2C59]/60 block text-left">
-                    Estimated Budget
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {budgetRanges.map((range) => (
-                      <button
-                        key={range}
-                        type="button"
-                        onClick={() => setSelectedBudget(range)}
-                        className={`text-xs font-semibold py-2.5 px-2 rounded-xl transition-all duration-200 border ${
-                          selectedBudget === range
-                            ? "bg-[#1D3D9E] text-white border-transparent shadow-sm"
-                            : "bg-transparent text-[#0F2C59]/80 border-[#0F2C59]/10 hover:border-[#1D3D9E]/30"
-                        }`}
-                      >
-                        {range}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+
 
                 {/* 4. Submit button */}
                 <div className="pt-2 flex justify-start">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex justify-center items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex justify-center items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="w-4 h-4" />
