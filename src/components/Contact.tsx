@@ -144,23 +144,23 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* 1. Project Type Selector Chips */}
+                {/* 1. Project Type Selector Grid */}
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/60 block text-left">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/50 block text-left">
                     What can we help you build?
                   </label>
-                  <div className="flex flex-wrap gap-2 justify-start">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {projectTypes.map((type) => (
                       <button
                         key={type}
                         type="button"
                         onClick={() => setSelectedType(type)}
-                        className={`text-xs font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 ${
+                        className={`text-xs font-semibold px-3 py-3 rounded-xl transition-all duration-200 border text-center ${
                           selectedType === type
-                            ? "bg-[#FF6B00] text-white shadow-sm shadow-[#FF6B00]/10"
-                            : "bg-[#1D3D9E]/5 text-[#1D3D9E] hover:bg-[#1D3D9E]/10"
+                            ? "bg-[#FF6B00] text-white border-transparent shadow-sm shadow-[#FF6B00]/10"
+                            : "bg-[#1D3D9E]/5 text-[#1D3D9E] border-[#1D3D9E]/10 hover:bg-[#1D3D9E]/10"
                         }`}
                       >
                         {type}
@@ -169,63 +169,61 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* 2. Interactive Input Fields (Floating Labels) */}
-                <div className="space-y-6">
+                {/* 2. Interactive Input Fields */}
+                <div className="space-y-4">
                   
                   {/* Name field */}
-                  <div className="relative group">
+                  <div className="space-y-1.5 text-left">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/50">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="peer w-full bg-transparent border-b border-[#1D3D9E]/20 py-3 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:border-[#FF6B00] transition-colors placeholder-transparent"
-                      placeholder="Full Name"
+                      className="w-full bg-[#1D3D9E]/5 border border-[#1D3D9E]/10 rounded-xl px-4 py-3.5 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent transition-all duration-200 placeholder-[#0F2C59]/30"
+                      placeholder="e.g. John Doe"
                     />
-                    <label className="absolute left-0 top-3 text-xs sm:text-sm text-[#0F2C59]/50 transition-all duration-300 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#0F2C59]/40 peer-focus:top-[-14px] peer-focus:text-xs peer-focus:text-[#FF6B00] peer-[:not(:placeholder-shown)]:top-[-14px] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#FF6B00]">
-                      Full Name
-                    </label>
                   </div>
 
                   {/* Email field */}
-                  <div className="relative group">
+                  <div className="space-y-1.5 text-left">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/50">
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="peer w-full bg-transparent border-b border-[#1D3D9E]/20 py-3 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:border-[#FF6B00] transition-colors placeholder-transparent"
-                      placeholder="Email Address"
+                      className="w-full bg-[#1D3D9E]/5 border border-[#1D3D9E]/10 rounded-xl px-4 py-3.5 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent transition-all duration-200 placeholder-[#0F2C59]/30"
+                      placeholder="e.g. john@company.com"
                     />
-                    <label className="absolute left-0 top-3 text-xs sm:text-sm text-[#0F2C59]/50 transition-all duration-300 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#0F2C59]/40 peer-focus:top-[-14px] peer-focus:text-xs peer-focus:text-[#FF6B00] peer-[:not(:placeholder-shown)]:top-[-14px] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#FF6B00]">
-                      Email Address
-                    </label>
                   </div>
 
                   {/* Message field */}
-                  <div className="relative group">
+                  <div className="space-y-1.5 text-left">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#0F2C59]/50">
+                      Tell us about your project
+                    </label>
                     <textarea
                       required
-                      rows={3}
+                      rows={4}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="peer w-full bg-transparent border-b border-[#1D3D9E]/20 py-3 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:border-[#FF6B00] transition-colors placeholder-transparent resize-none"
-                      placeholder="Tell us about your project..."
+                      className="w-full bg-[#1D3D9E]/5 border border-[#1D3D9E]/10 rounded-xl px-4 py-3.5 text-sm sm:text-base text-[#0F2C59] focus:outline-none focus:ring-2 focus:ring-[#FF6B00] focus:border-transparent transition-all duration-200 placeholder-[#0F2C59]/30 resize-none"
+                      placeholder="Describe what you want to build, target timeline, etc..."
                     />
-                    <label className="absolute left-0 top-3 text-xs sm:text-sm text-[#0F2C59]/50 transition-all duration-300 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:text-[#0F2C59]/40 peer-focus:top-[-14px] peer-focus:text-xs peer-focus:text-[#FF6B00] peer-[:not(:placeholder-shown)]:top-[-14px] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-[#FF6B00]">
-                      Tell us about your project...
-                    </label>
                   </div>
                 </div>
 
-
-
-                {/* 4. Submit button */}
-                <div className="pt-2 flex justify-start">
+                {/* 3. Submit button */}
+                <div className="pt-2 flex justify-start w-full">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex justify-center items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
+                    className="inline-flex justify-center items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs sm:text-sm font-bold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto hover:scale-[1.02] active:scale-[0.98]"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="w-4 h-4" />
