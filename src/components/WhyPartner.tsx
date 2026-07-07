@@ -201,7 +201,7 @@ export default function WhyPartner() {
 
       {/* 3. FINAL CALL-TO-ACTION (CTA) SECTION */}
       <section className="py-12 max-w-7xl mx-auto px-6">
-        <div className="bg-[#1D3D9E] rounded-3xl p-8 sm:p-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[220px] lg:min-h-[260px]">
+        <div className="bg-[#1D3D9E] rounded-3xl pt-8 pb-32 px-8 sm:pt-12 sm:pb-36 sm:px-12 lg:p-16 text-white relative overflow-hidden flex items-center justify-start min-h-[320px] sm:min-h-[340px] lg:min-h-[260px]">
           
           {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
           <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none select-none z-0">
@@ -212,6 +212,17 @@ export default function WhyPartner() {
               sizes="50vw"
               className="object-contain object-right-bottom opacity-95"
               priority
+            />
+          </div>
+
+          {/* Mobile version (Visible on <lg) - absolutely positioned in the bottom-right corner of the card */}
+          <div className="absolute right-0 bottom-0 left-0 w-full h-[130px] sm:h-[160px] pointer-events-none select-none z-0 lg:hidden">
+            <Image
+              src="/images/cta_town_mobile_final.png"
+              alt="Seaside Coastal Town & Sailboat Sketch (Mobile)"
+              fill
+              sizes="100vw"
+              className="object-contain object-right-bottom opacity-95"
             />
           </div>
 
@@ -235,17 +246,6 @@ export default function WhyPartner() {
                   Start Your Project
                 </Link>
               </div>
-            </div>
-
-            {/* Right Side / Mobile Only: Sketched illustration container inside grid */}
-            <div className="block lg:hidden w-full h-[160px] sm:h-[200px] relative select-none">
-              <Image
-                src="/images/cta_town_mobile_final.png"
-                alt="Seaside Coastal Town & Sailboat Sketch (Mobile)"
-                fill
-                sizes="100vw"
-                className="object-contain object-center opacity-95"
-              />
             </div>
             
           </div>
