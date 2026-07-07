@@ -206,7 +206,7 @@ export default function WhyPartner() {
           {/* Desktop version (Visible on lg and larger) - spans full height from absolute top to bottom */}
           <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[55%] pointer-events-none select-none z-0">
             <Image
-              src="/images/cta_town_desktop_final.png"
+              src="/images/cta_town_mobile_final.png"
               alt="Seaside Coastal Town & Sailboat Sketch (Desktop)"
               fill
               sizes="50vw"
