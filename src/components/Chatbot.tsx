@@ -284,7 +284,7 @@ export default function Chatbot() {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-20 h-20 rounded-full bg-[#FDFBF8] border-2 border-[#0F2C59] shadow-xl hover:shadow-2xl transition-shadow flex items-center justify-center cursor-pointer group focus:outline-none overflow-hidden"
+          className="relative w-20 h-20 flex items-center justify-center cursor-pointer group focus:outline-none filter drop-shadow-[0_8px_16px_rgba(15,44,89,0.22)] hover:drop-shadow-[0_12px_20px_rgba(15,44,89,0.28)] transition-all duration-200 active:scale-95 select-none"
         >
           {/* Bottom Shell (Base) */}
           <div className="absolute inset-0 flex items-center justify-center">
