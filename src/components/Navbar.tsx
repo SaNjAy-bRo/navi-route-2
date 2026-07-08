@@ -20,10 +20,10 @@ const megaMenuData = [
     icon: Laptop,
     iconColor: "text-[#1D3D9E] bg-[#1D3D9E]/5",
     items: [
-      { name: "Business Website Development", href: "/services/business-website-development", active: true },
-      { name: "React / Next.js Website Development", href: "/services/react-nextjs-website-development", active: true },
-      { name: "Ecommerce Website Development", href: "/services/ecommerce-website-development", active: true },
-      { name: "Landing Page Development", href: "/services/landing-page-development", active: true },
+      { name: "Business Website", href: "/services/business-website-development", active: true },
+      { name: "React / Next.js Website", href: "/services/react-nextjs-website-development", active: true },
+      { name: "Ecommerce Website", href: "/services/ecommerce-website-development", active: true },
+      { name: "Landing Page", href: "/services/landing-page-development", active: true },
       { name: "Website Redesign", href: "/services/website-redesign-services", active: true },
       { name: "Website Maintenance", href: "/services/website-maintenance-services", active: true },
     ]
@@ -61,11 +61,9 @@ const megaMenuData = [
     icon: Megaphone,
     iconColor: "text-amber-600 bg-amber-50",
     items: [
-      { name: "Google Ads Management", href: "/services/google-ads-management", active: true },
-      { name: "Meta Ads Management", href: "/services/meta-ads-management", active: true },
-      { name: "SEO Services", href: "/services/seo-services", active: true },
       { name: "Social Media Management", href: "/services/social-media-management", active: true },
       { name: "Lead Generation Campaigns", href: "/services/lead-generation-campaigns", active: true },
+      { name: "SEO Services", href: "/services/seo-services", active: true },
       { name: "Performance Marketing", href: "/services/performance-marketing", active: true },
       { name: "Analytics & Tracking Setup", href: "/services/analytics-tracking-setup", active: true },
     ]

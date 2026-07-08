@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, Clock } from "lucide-react";
 
 const projectTypes = [
   "Website Development",
@@ -13,8 +13,39 @@ const projectTypes = [
   "Consulting",
 ];
 
+const branches = [
+  {
+    id: "udupi",
+    name: "Udupi",
+    label: "India",
+    address: "2nd Floor, Business Bay Centre, Udupi–Manipal Highway, Kunjibettu, Udupi, Karnataka 576102, India",
+    phone: "+91 99863 89444",
+    hours: "Monday - Saturday: 9:30 AM - 6:30 PM (IST)",
+    comingSoon: false,
+  },
+  {
+    id: "singapore",
+    name: "Singapore",
+    label: "Singapore",
+    address: "7 Temasek Boulevard, #12-07, Suntec Tower 1, Singapore 038987",
+    phone: "+65 6460 4000",
+    hours: "Monday - Friday: 9:00 AM - 6:00 PM (SGT)",
+    comingSoon: false,
+  },
+  {
+    id: "goa",
+    name: "Goa",
+    label: "Goa",
+    address: "Details coming soon...",
+    phone: "",
+    hours: "",
+    comingSoon: true,
+  }
+];
+
 export default function Contact() {
   const [selectedType, setSelectedType] = useState<string>("Website Development");
+  const [activeBranch, setActiveBranch] = useState("udupi");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -75,7 +106,7 @@ export default function Contact() {
 
             {/* Phone Card */}
             <a 
-              href="tel:+15551234567" 
+              href="tel:+919986389444" 
               className="flex items-center gap-4 p-5 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 hover:bg-[#1D3D9E]/10 hover:border-[#FF6B00]/30 transition-all duration-300 group text-left w-full"
             >
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#1D3D9E] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 shadow-sm flex-shrink-0">
@@ -83,45 +114,105 @@ export default function Contact() {
               </div>
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F2C59]/50">Call Us</p>
-                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">+1 (555) 123-4567</p>
-                <p className="text-[11px] text-[#0F2C59]/60">Mon - Fri, 9am - 6pm EST</p>
+                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">+91 99863 89444</p>
+                <p className="text-[11px] text-[#0F2C59]/60">Mon - Sat, 9:30am - 6:30pm IST</p>
               </div>
             </a>
 
-            {/* Location Card */}
-            <div className="flex items-center gap-4 p-5 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 text-left w-full">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#1D3D9E] shadow-sm flex-shrink-0">
-                <MapPin className="w-5 h-5 stroke-[1.5]" />
+            {/* Branch Locations Selector Widget */}
+            <div className="p-6 rounded-2xl border border-[#1D3D9E]/10 bg-[#1D3D9E]/5 space-y-6 w-full text-left">
+              <div className="flex items-center justify-between border-b border-[#1D3D9E]/10 pb-3">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#0F2C59]/50">Our Offices</span>
+                <span className="bg-[#1D3D9E]/10 text-[#1D3D9E] text-[9px] font-bold px-2.5 py-0.5 rounded-full">Global Presence</span>
               </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-[#0F2C59]/50">HQ Location</p>
-                <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E]">Austin, TX &amp; Worldwide</p>
-                <p className="text-[11px] text-[#0F2C59]/60">Available for remote engagements</p>
+
+              {/* Branch Selector Tabs */}
+              <div className="flex gap-1.5 p-1 bg-[#1D3D9E]/5 rounded-xl">
+                {branches.map((b) => (
+                  <button
+                    key={b.id}
+                    type="button"
+                    onClick={() => setActiveBranch(b.id)}
+                    className={`flex-1 text-center py-2 px-1 rounded-lg text-xs font-bold transition-all duration-200 ${
+                      activeBranch === b.id
+                        ? "bg-white text-[#1D3D9E] shadow-sm"
+                        : "text-[#0F2C59]/60 hover:text-[#0F2C59]"
+                    }`}
+                  >
+                    {b.name}
+                    {b.comingSoon && <span className="ml-1 text-[8px] text-[#FF6B00] font-black uppercase tracking-wider block sm:inline">Soon</span>}
+                  </button>
+                ))}
+              </div>
+
+              {/* Branch Details Display */}
+              <div className="space-y-4 pt-1 min-h-[140px] flex flex-col justify-center">
+                {(() => {
+                  const b = branches.find((branch) => branch.id === activeBranch)!;
+                  if (b.comingSoon) {
+                    return (
+                      <div className="flex flex-col items-center justify-center py-4 text-center space-y-2 bg-white/40 border border-[#1D3D9E]/5 rounded-xl">
+                        <div className="w-10 h-10 rounded-full bg-[#FF6B00]/10 flex items-center justify-center text-[#FF6B00]">
+                          <MapPin className="w-5 h-5 animate-bounce" />
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="font-bold text-sm text-[#1D3D9E]">Goa Office</h4>
+                          <p className="text-[11px] text-[#0F2C59]/60 px-4">Address and contact details coming soon. Stay tuned!</p>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="space-y-4">
+                      {/* Office Location */}
+                      <div className="flex gap-3 items-start">
+                        <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-[#1D3D9E] shadow-sm shrink-0">
+                          <MapPin className="w-4 h-4 stroke-[2]" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <p className="text-[9px] font-bold uppercase tracking-wider text-[#0F2C59]/50 leading-none">Office Location</p>
+                          <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E] leading-relaxed">{b.address}</p>
+                        </div>
+                      </div>
+
+                      {/* Direct Line */}
+                      <div className="flex gap-3 items-start">
+                        <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-[#1D3D9E] shadow-sm shrink-0">
+                          <Phone className="w-4 h-4 stroke-[2]" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <p className="text-[9px] font-bold uppercase tracking-wider text-[#0F2C59]/50 leading-none">Direct Line</p>
+                          <a 
+                            href={`tel:${b.phone.replace(/[^+\d]/g, "")}`} 
+                            className="font-semibold text-xs sm:text-sm text-[#1D3D9E] hover:text-[#FF6B00] transition-colors leading-relaxed block"
+                          >
+                            {b.phone}
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Working Hours */}
+                      <div className="flex gap-3 items-start">
+                        <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-[#1D3D9E] shadow-sm shrink-0">
+                          <Clock className="w-4 h-4 stroke-[2]" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <p className="text-[9px] font-bold uppercase tracking-wider text-[#0F2C59]/50 leading-none">Working Hours</p>
+                          <p className="font-semibold text-xs sm:text-sm text-[#1D3D9E] leading-relaxed">{b.hours}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
 
           </div>
-
-          {/* Floating Message Bottle Illustration */}
-          <div className="hidden lg:flex justify-center pt-4">
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-44 h-44 select-none pointer-events-none"
-            >
-              <Image
-                src="/images/floating_message_bottle_v4.png"
-                alt="Floating Message Bottle Sketch"
-                fill
-                className="object-contain"
-              />
-            </motion.div>
-          </div>
         </div>
 
         {/* Right Side: Interactive Card Form */}
-        <div className="lg:col-span-7 w-full flex">
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#1D3D9E]/10 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden w-full flex flex-col justify-center">
+        <div className="lg:col-span-7 w-full">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#1D3D9E]/10 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden w-full flex flex-col">
             
             {isSubmitted ? (
               <motion.div 
@@ -235,8 +326,41 @@ export default function Contact() {
             
           </div>
         </div>
-        
+
       </div>
+
+      {/* Dynamic Google Map & Illustration Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mt-12 w-full">
+        {/* Left Side: Large Floating Message Bottle */}
+        <div className="lg:col-span-5 flex justify-center items-center">
+          <motion.div
+            animate={{ y: [0, -16, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-72 h-72 sm:w-[420px] sm:h-[420px] select-none pointer-events-none"
+          >
+            <Image
+              src="/images/floating_message_bottle_v4.png"
+              alt="Floating Message Bottle Sketch"
+              fill
+              className="object-contain"
+            />
+          </motion.div>
+        </div>
+
+        {/* Right Side: Map */}
+        <div className="lg:col-span-7 w-full h-80 sm:h-[360px] rounded-3xl overflow-hidden border border-[#1D3D9E]/10 shadow-lg relative">
+          <iframe
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(
+              activeBranch === "goa" ? "Goa, India" : branches.find((b) => b.id === activeBranch)?.address || ""
+            )}&t=&z=${activeBranch === "goa" ? 11 : 15}&ie=UTF8&iwloc=&output=embed`}
+            className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+
     </section>
   );
 }
