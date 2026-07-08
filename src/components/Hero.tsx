@@ -56,13 +56,14 @@ export default function Hero() {
 
             {/* Meta Partner Badge */}
             <div className="bg-[#FAF5EE]/60 border border-[#1D3D9E]/10 rounded-xl px-4 py-2.5 flex items-center gap-2.5 shadow-sm">
-              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#1877F2]" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  fillRule="evenodd" 
-                  clipRule="evenodd" 
-                  d="M15.53 7.828c-1.396 0-2.652.74-3.372 1.86l-1.22 1.897a2.38 2.38 0 01-1.986 1.102 2.38 2.38 0 01-1.987-1.102l-1.22-1.897C5.025 8.568 3.769 7.828 2.373 7.828A3.832 3.832 0 000 11.66c0 2.115 1.722 3.832 3.832 3.832 1.396 0 2.652-.74 3.372-1.86l1.22-1.897c.45-.698 1.25-1.102 1.986-1.102.736 0 1.536.404 1.987 1.102l1.22 1.897c.72 1.12 1.976 1.86 3.372 1.86A3.832 3.832 0 0020.9 11.66c0-2.115-1.722-3.832-3.832-3.832zm0 6.13a2.3 2.3 0 01-1.986-1.102l-1.22-1.898c-.45-.698-1.25-1.102-1.987-1.102-.736 0-1.536.404-1.986 1.102l-1.22 1.897A2.3 2.3 0 015.158 13.96a2.3 2.3 0 01-1.986-1.102 2.3 2.3 0 011.986-3.51c.736 0 1.536.404 1.987 1.102l1.22 1.897c.45.698 1.25 1.102 1.986 1.102.736 0 1.536-.404 1.987-1.102l1.22-1.897a2.3 2.3 0 011.986-1.102c1.27 0 2.3 1.03 2.3 2.3s-1.03 2.3-2.3 2.3z" 
+              <div className="relative w-5 h-5 flex-shrink-0 select-none pointer-events-none">
+                <Image
+                  src="/images/meta-color.svg"
+                  alt="Meta Brand Partner Logo"
+                  fill
+                  className="object-contain"
                 />
-              </svg>
+              </div>
               <div className="flex flex-col text-left">
                 <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">Official</span>
                 <span className="text-[11px] font-black text-[#1D3D9E] tracking-tight mt-0.5">Meta Business Partner</span>
