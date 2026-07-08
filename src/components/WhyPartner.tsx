@@ -164,31 +164,45 @@ export default function WhyPartner() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="border border-[#1D3D9E]/10 rounded-2xl p-6 bg-[#1D3D9E]/5 flex flex-col justify-start items-start text-left relative hover:shadow-md transition-all duration-300"
+              className="bg-white border border-[#1D3D9E]/10 rounded-3xl p-8 relative shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between items-start text-left overflow-hidden h-full min-h-[260px] group"
             >
-              {/* Header: Avatar and details aligned side-by-side */}
-              <div className="flex items-center gap-4 mb-4 w-full">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden border border-[#1D3D9E]/15 select-none flex-shrink-0">
-                  <Image
-                    src={test.avatar}
-                    alt={test.author}
-                    fill
-                    sizes="56px"
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-serif text-sm sm:text-base font-bold text-[#1D3D9E]">{test.author}</h4>
-                  <p className="text-[11px] sm:text-xs text-[#0F2C59]/60">{test.role}</p>
-                </div>
+              {/* Top Left Double Slanted Dash Decoration */}
+              <div className="absolute top-6 left-6 flex gap-1.5 select-none pointer-events-none">
+                <div className="w-1.5 h-4.5 bg-[#FF6B00]/40 transform skew-x-[-15deg] rounded-full" />
+                <div className="w-1.5 h-4.5 bg-[#FF6B00]/40 transform skew-x-[-15deg] rounded-full" />
               </div>
 
-              {/* Quote details */}
-              <div className="w-full relative">
-                <span className="text-[#FF6B00] text-2xl font-serif block mb-1 leading-none">“</span>
-                <p className="text-[#0F2C59]/80 text-xs sm:text-sm leading-relaxed italic pr-2">
+              {/* Bottom Right Double Slanted Dash Decoration */}
+              <div className="absolute bottom-6 right-6 flex gap-1.5 select-none pointer-events-none">
+                <div className="w-1.5 h-4.5 bg-[#FF6B00]/40 transform skew-x-[-15deg] rounded-full" />
+                <div className="w-1.5 h-4.5 bg-[#FF6B00]/40 transform skew-x-[-15deg] rounded-full" />
+              </div>
+
+              {/* Quote Text */}
+              <div className="w-full pt-4 pr-2 pl-2">
+                <p className="text-[#0F2C59] text-sm sm:text-base leading-relaxed italic font-medium">
                   {test.quote}
                 </p>
+              </div>
+
+              {/* Divider and Integrated Author Details inside the card */}
+              <div className="w-full mt-6">
+                <div className="w-full border-t border-dashed border-[#1D3D9E]/10 my-4" />
+                <div className="flex items-center gap-3.5 pl-2">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#1D3D9E]/15 select-none flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                    <Image
+                      src={test.avatar}
+                      alt={test.author}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-xs sm:text-sm font-bold text-[#1D3D9E]">{test.author}</h4>
+                    <p className="text-[10px] sm:text-[11px] text-[#FF6B00] font-bold uppercase tracking-wider mt-0.5">{test.role}</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
