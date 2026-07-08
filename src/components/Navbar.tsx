@@ -33,13 +33,13 @@ const megaMenuData = [
     icon: Smartphone,
     iconColor: "text-purple-600 bg-purple-50",
     items: [
-      { name: "Mobile App Development", href: "/services/mobile-app-development", active: true },
-      { name: "Web App Development", href: "/services/web-app-development", active: true },
-      { name: "SaaS Product Development", href: "/services/saas-product-development", active: true },
-      { name: "CRM & Dashboard Development", href: "/services/crm-dashboard-development", active: true },
-      { name: "Booking System Development", href: "/services/booking-system-development", active: true },
-      { name: "Admin Panel Development", href: "/services/admin-panel-development", active: true },
-      { name: "Customer Portal Development", href: "/services/customer-portal-development", active: true },
+      { name: "Mobile App", href: "/services/mobile-app-development", active: true },
+      { name: "Web App", href: "/services/web-app-development", active: true },
+      { name: "SaaS Product", href: "/services/saas-product-development", active: true },
+      { name: "CRM & Dashboard", href: "/services/crm-dashboard-development", active: true },
+      { name: "Booking System", href: "/services/booking-system-development", active: true },
+      { name: "Admin Panel", href: "/services/admin-panel-development", active: true },
+      { name: "Customer Portal", href: "/services/customer-portal-development", active: true },
     ]
   },
   {
@@ -62,6 +62,7 @@ const megaMenuData = [
     iconColor: "text-amber-600 bg-amber-50",
     items: [
       { name: "Social Media Management", href: "/services/social-media-management", active: true },
+      { name: "Social Media Marketing", href: "/services/social-media-marketing", active: true },
       { name: "Lead Generation Campaigns", href: "/services/lead-generation-campaigns", active: true },
       { name: "SEO Services", href: "/services/seo-services", active: true },
       { name: "Performance Marketing", href: "/services/performance-marketing", active: true },
