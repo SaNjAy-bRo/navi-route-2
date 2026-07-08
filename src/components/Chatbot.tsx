@@ -16,28 +16,23 @@ interface ChatOption {
 }
 
 const ShellBottomSvg = () => (
-  <svg viewBox="0 0 100 100" className="w-12 h-12 fill-[#F4EBE1] stroke-[#0F2C59]" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 100 100" className="w-16 h-16 fill-[#F4EBE1] stroke-[#0F2C59]" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     {/* Bottom flat shell hinge and lower contours */}
     <path d="M 50 85 C 20 80, 8 62, 8 42 C 8 36, 12 32, 22 36 C 35 40, 42 42, 50 42 C 58 42, 65 40, 78 36 C 88 32, 92 36, 92 42 C 92 62, 80 80, 50 85 Z" />
     {/* Inner detail ribs */}
     <path d="M 50 85 V 42" strokeWidth="1.5" opacity="0.4" />
     <path d="M 50 85 C 42 70, 32 55, 26 40" strokeWidth="1.5" opacity="0.4" />
     <path d="M 50 85 C 58 70, 68 55, 74 40" strokeWidth="1.5" opacity="0.4" />
-    {/* Pearl nested in bottom shell */}
-    <circle cx="50" cy="56" r="6" fill="url(#pearlRadial)" stroke="#0F2C59" strokeWidth="1.2" />
-    <defs>
-      <radialGradient id="pearlRadial" cx="30%" cy="30%" r="70%">
-        <stop offset="0%" stopColor="#FFF" />
-        <stop offset="45%" stopColor="#FFF5EA" />
-        <stop offset="90%" stopColor="#E3C4A8" />
-        <stop offset="100%" stopColor="#C49B7A" />
-      </radialGradient>
-    </defs>
+    {/* Shading details */}
+    <path d="M 45 80 L 48 83 M 43 78 L 46 81 M 55 80 L 52 83 M 57 78 L 54 81" strokeWidth="1.2" opacity="0.4" />
+    <path d="M 12 45 C 16 55, 24 65, 35 72 M 88 45 C 84 55, 76 65, 65 72" strokeWidth="1" opacity="0.25" />
+    {/* Nested pearl base shadow */}
+    <circle cx="50" cy="56" r="6" fill="#000000" opacity="0.08" />
   </svg>
 );
 
 const ShellTopSvg = () => (
-  <svg viewBox="0 0 100 100" className="w-12 h-12 fill-[#FDFBF8] stroke-[#0F2C59]" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 100 100" className="w-16 h-16 fill-[#FDFBF8] stroke-[#0F2C59]" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     {/* Top shell dome with fan fluting */}
     <path d="M 50 85 C 18 78, 4 58, 4 35 C 4 18, 22 6, 50 6 C 78 6, 96 18, 96 35 C 96 58, 82 78, 50 85 Z" />
     {/* Fan fluting ribs */}
@@ -46,6 +41,16 @@ const ShellTopSvg = () => (
     <path d="M 50 85 C 58 62, 72 35, 78 15" strokeWidth="1.5" />
     <path d="M 50 85 C 32 68, 16 48, 10 30" strokeWidth="1.5" />
     <path d="M 50 85 C 68 68, 84 48, 90 30" strokeWidth="1.5" />
+    {/* Ink Shading details */}
+    <path d="M 47 50 L 49 52 M 46 40 L 48 42 M 45 30 L 47 32" strokeWidth="0.8" opacity="0.5" />
+    <path d="M 53 50 L 51 52 M 54 40 L 52 42 M 55 30 L 53 32" strokeWidth="0.8" opacity="0.5" />
+    <path d="M 33 60 L 35 62 M 30 50 L 32 52 M 27 40 L 29 42" strokeWidth="0.8" opacity="0.5" />
+    <path d="M 18 55 L 20 57 M 15 45 L 17 47" strokeWidth="0.8" opacity="0.5" />
+    <path d="M 67 60 L 65 62 M 70 50 L 68 52 M 73 40 L 71 42" strokeWidth="0.8" opacity="0.5" />
+    <path d="M 82 55 L 80 57 M 85 45 L 83 47" strokeWidth="0.8" opacity="0.5" />
+    {/* growth rings */}
+    <path d="M 12 38 C 24 45, 76 45, 88 38" strokeWidth="1" opacity="0.3" />
+    <path d="M 20 55 C 32 60, 68 60, 80 55" strokeWidth="1" opacity="0.25" />
     {/* Base clasp hinge details */}
     <path d="M 38 81 C 42 83, 58 83, 62 81" strokeWidth="2.5" />
   </svg>
@@ -279,22 +284,42 @@ export default function Chatbot() {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative w-16 h-16 rounded-full bg-[#FDFBF8] border-2 border-[#0F2C59] shadow-xl hover:shadow-2xl transition-shadow flex items-center justify-center cursor-pointer group focus:outline-none overflow-hidden"
+          className="relative w-20 h-20 rounded-full bg-[#FDFBF8] border-2 border-[#0F2C59] shadow-xl hover:shadow-2xl transition-shadow flex items-center justify-center cursor-pointer group focus:outline-none overflow-hidden"
         >
-          {/* Bottom Shell (Base + Pearl) */}
+          {/* Bottom Shell (Base) */}
           <div className="absolute inset-0 flex items-center justify-center">
             <ShellBottomSvg />
           </div>
+
+          {/* Pulsing Pearl inside when open */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ 
+                  scale: [1, 1.25, 1],
+                  opacity: 1
+                }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ 
+                  scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+                  opacity: { duration: 0.25 }
+                }}
+                className="absolute w-3.5 h-3.5 rounded-full bg-white border border-[#FF6B00] shadow-[0_0_12px_rgba(255,107,0,0.7)] z-10 -translate-x-1/2 -translate-y-1/2"
+                style={{ top: "56%", left: "50%" }}
+              />
+            )}
+          </AnimatePresence>
 
           {/* Top Shell (Hinged Lid) */}
           <motion.div
             style={{ originX: 0.5, originY: 0.85 }}
             animate={{ 
-              rotateX: isOpen ? -100 : 0,
-              y: isOpen ? -2 : 0
+              rotateX: isOpen ? -115 : 0,
+              y: isOpen ? -6 : 0
             }}
             transition={{ type: "spring", stiffness: 120, damping: 15 }}
-            className="absolute inset-0 flex items-center justify-center z-10"
+            className="absolute inset-0 flex items-center justify-center z-20"
           >
             <ShellTopSvg />
           </motion.div>
