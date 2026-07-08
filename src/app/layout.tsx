@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Caveat, Inter } from "next/font/google";
 import "./globals.css";
+import Chatbot from "@/components/Chatbot";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-sand-100 text-navy-900 selection:bg-navy-100 selection:text-navy-800">
         {children}
+        <Chatbot />
       </body>
     </html>
   );
